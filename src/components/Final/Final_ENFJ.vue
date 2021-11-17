@@ -65,28 +65,9 @@
 
 <script>
 import Final_Modal from "./Final_Modal.vue";
-import { defineComponent, computed, reactive } from "vue";
-import { useHead } from "@vueuse/head";
 
-export default defineComponent({
+export default {
   name: "Final_ENFJ",
-  setup() {
-    const siteData = reactive({
-      title: "My website",
-      description: "My beautiful website",
-      image: "/image/meta/metaimg_결과공유_알리압둘.png",
-    });
-    useHead({
-      // Can be static or computed
-      title: computed(() => siteData.title),
-      meta: [
-        {
-          property: "og:image",
-          content: computed(() => siteData.image),
-        },
-      ],
-    });
-  },
   data() {
     return {
       showModal: false,
@@ -109,7 +90,7 @@ export default defineComponent({
       this.$router.push({ name: "Main" });
     },
   },
-});
+};
 </script>
 
 <style scoped>
