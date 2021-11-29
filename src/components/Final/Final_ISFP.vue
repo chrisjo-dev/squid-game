@@ -22,21 +22,21 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-
             <li v-for="(text, i) in mbtiInfo2_text" :key="i">
               <span>{{ text }}</span>
 
-            <LinkShare
-              :resultLink="resultLink"
-              :homeLink="homeLink"
-              :mbti="mbti"
-              :middle="true"
-              v-on:blurClass="blurResult"
-              v-if="!firstTest"
-            ></LinkShare>
+              <LinkShare
+                :resultLink="resultLink"
+                :homeLink="homeLink"
+                :mbti="mbti"
+                :middle="true"
+                v-on:blurClass="blurResult"
+                v-if="!firstTest"
+              ></LinkShare>
+            </li>
+
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
-
             </li>
           </ul>
         </section>
@@ -137,15 +137,11 @@ export default {
   data() {
     return {
       showModal: false,
-
-      mbtiInfo2_text: [
-
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ISFP",
-      mbtiInfo_text: [
-
+      mbtiInfo2_text: [
         "말보다 행동으로 따듯함을 나타낸다.",
         "감정기복이 심하고 공감능력이 좋다.",
         "귀찮음이 많고 의욕이 부족한 편이다.",

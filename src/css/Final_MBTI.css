@@ -71,13 +71,9 @@ p {
     line-height: 22.4px;
     list-style: inside;
     color: white;
-
     user-select: none; 
     -webkit-user-select: none;
-
-
     position: relative;
-
 }
 .mbtiInfo_text li, .mbtiInfo2_text li{
     text-indent: -20px;
@@ -91,6 +87,17 @@ p {
     left: -7.17px
 }
 .mbtiInfo_wrap {
+    width: 300px;
+    height: auto;
+    line-height: 22.4px;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e73e7e;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background: rgba(231, 62, 126, 0.25);
+}
 
 .mbtiInfo2_text .blurList {
     filter: blur(2px);

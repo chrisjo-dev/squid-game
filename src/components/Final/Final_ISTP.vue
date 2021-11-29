@@ -22,21 +22,21 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-
             <li v-for="(text, i) in mbtiInfo2_text" :key="i">
               <span>{{ text }}</span>
 
-            <LinkShare
-              :resultLink="resultLink"
-              :homeLink="homeLink"
-              :mbti="mbti"
-              :middle="true"
-              v-on:blurClass="blurResult"
-              v-if="!firstTest"
-            ></LinkShare>
+              <LinkShare
+                :resultLink="resultLink"
+                :homeLink="homeLink"
+                :mbti="mbti"
+                :middle="true"
+                v-on:blurClass="blurResult"
+                v-if="!firstTest"
+              ></LinkShare>
+            </li>
+
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
-
             </li>
           </ul>
         </section>
@@ -137,15 +137,11 @@ export default {
   data() {
     return {
       showModal: false,
-
-      mbtiInfo2_text: [
-
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ISTP",
-      mbtiInfo_text: [
-
+      mbtiInfo2_text: [
         "조용하고 말이 없어서 처음에는 차가운 인상이지만 알고 보면 따듯한 사람.",
         "절제된 호기심으로 인생을 관찰하고 상황파악이 빠르다.",
         "자기 자신을 필요 이상으로 드러내지 않는다. ",

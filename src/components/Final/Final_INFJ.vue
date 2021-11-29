@@ -22,21 +22,21 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-
             <li v-for="(text, i) in mbtiInfo2_text" :key="i">
               <span>{{ text }}</span>
 
-            <LinkShare
-              :resultLink="resultLink"
-              :homeLink="homeLink"
-              :mbti="mbti"
-              :middle="true"
-              v-on:blurClass="blurResult"
-              v-if="!firstTest"
-            ></LinkShare>
+              <LinkShare
+                :resultLink="resultLink"
+                :homeLink="homeLink"
+                :mbti="mbti"
+                :middle="true"
+                v-on:blurClass="blurResult"
+                v-if="!firstTest"
+              ></LinkShare>
+            </li>
+
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
-
             </li>
           </ul>
         </section>
@@ -137,15 +137,11 @@ export default {
   data() {
     return {
       showModal: false,
-
-      mbtiInfo2_text: [
-
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "INFJ",
-      mbtiInfo_text: [
-
+      mbtiInfo2_text: [
         "창의력과 통찰력이 뛰어나다.",
         "독창성과 사적인 독립심이 강하다. ",
         "확고한 신념과 원칙을 갖고있다.",

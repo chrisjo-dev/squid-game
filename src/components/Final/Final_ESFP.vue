@@ -22,21 +22,21 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-
             <li v-for="(text, i) in mbtiInfo2_text" :key="i">
               <span>{{ text }}</span>
 
-            <LinkShare
-              :resultLink="resultLink"
-              :homeLink="homeLink"
-              :mbti="mbti"
-              :middle="true"
-              v-on:blurClass="blurResult"
-              v-if="!firstTest"
-            ></LinkShare>
+              <LinkShare
+                :resultLink="resultLink"
+                :homeLink="homeLink"
+                :mbti="mbti"
+                :middle="true"
+                v-on:blurClass="blurResult"
+                v-if="!firstTest"
+              ></LinkShare>
+            </li>
+
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
-
             </li>
           </ul>
         </section>
@@ -137,15 +137,11 @@ export default {
   data() {
     return {
       showModal: false,
-
-      mbtiInfo2_text: [
-
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ESFP",
-      mbtiInfo_text: [
-
+      mbtiInfo2_text: [
         "현실적이고 실제적이며 어떤 상황에도 타협적이다.",
         "웃음과 오락 등 즐거움을 추구하는 성격이다.",
         "선입견이 적고 개방적이며 사람들을 잘 받아들인다.",

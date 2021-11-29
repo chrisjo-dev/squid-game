@@ -22,21 +22,21 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-
             <li v-for="(text, i) in mbtiInfo2_text" :key="i">
               <span>{{ text }}</span>
 
-            <LinkShare
-              :resultLink="resultLink"
-              :homeLink="homeLink"
-              :mbti="mbti"
-              :middle="true"
-              v-on:blurClass="blurResult"
-              v-if="!firstTest"
-            ></LinkShare>
+              <LinkShare
+                :resultLink="resultLink"
+                :homeLink="homeLink"
+                :mbti="mbti"
+                :middle="true"
+                v-on:blurClass="blurResult"
+                v-if="!firstTest"
+              ></LinkShare>
+            </li>
+
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
-
             </li>
           </ul>
         </section>
@@ -137,15 +137,11 @@ export default {
   data() {
     return {
       showModal: false,
-
-      mbtiInfo2_text: [
-
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ENFP",
-      mbtiInfo_text: [
-
+      mbtiInfo2_text: [
         "열성적이며 활발하고 창의적이다.",
         "철저한 계획을 세우기 보다는 자기 스타일대로 한다.",
         "열정적으로 새 관계를 만들어가며 사람들과 자유롭게 어울리는 것을 즐긴다.",
