@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "INFP",
       mbtiInfo_text: [
+
         "마음은 따듯하지만 상대방을 잘 알기 전까지는 표현을 잘하지 않는다.",
         "자신이 지향하는 이상에 대해서는 정열적인 신념을 갖고 있다.",
         "조화로운 관계를 중요시한다.",
@@ -142,7 +153,7 @@ export default {
         "내향적인 성격이며 솔직하고 합리적인 모습이 있다.",
         " 혼자서 생각하는 시간을 즐기며 독립심이 강하다",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "오징어 게임에서 다른 사람들과 쉽게 어울리지 못하는 모습을 보여준다.",
         "지속적으로 혼자서 있는 모습이 자주 보이듯이 혼자 조용한 시간을 보내는 걸 즐기는 성격이다. ",
         "성훈이 다가가도 쉽게 마음의 문을 열지는 않지만 친해진 후에는 솔직하고 따듯한 모습들을 보여준다.",

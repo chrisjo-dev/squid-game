@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ESTJ",
       mbtiInfo_text: [
+
         "일을 구체적으로 조직하고 계획하는 능력이 뛰어나다.",
         "체계적이고 조직화된 시스템 속에서 결단력 있는 행동을 보인다.",
         "현실적이고 논리적으로 사업이나 조직을 이끌어 나가는 재능을 가졌다.",
@@ -142,7 +153,7 @@ export default {
         "주변사람들에게 잔소리를 많이 한다.",
         "지나치게 일 중심적인 성격이 강하다.",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "오징어 게임을 관전하기 위해서 천문학적인 돈을 내는 외국인들.",
         "힘들고 물러날 곳 없는 인생을 사는 사람들이 처절하게 살기 위해 발버둥 치는 모습을 즐기면서 보는 기묘한 성격의 보유자들.",
         "사업가로서 게임을 관전하는 중에도, 권위적이고 규칙을 중시하는 모습을 보여준다.",

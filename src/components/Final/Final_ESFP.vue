@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ESFP",
       mbtiInfo_text: [
+
         "현실적이고 실제적이며 어떤 상황에도 타협적이다.",
         "웃음과 오락 등 즐거움을 추구하는 성격이다.",
         "선입견이 적고 개방적이며 사람들을 잘 받아들인다.",
@@ -145,7 +156,7 @@ export default {
         "주변에서 관종이라는 말을 자주 듣는다.",
         "충동적이고 열정적이지만 싫증이 빠르게 나고 진지하지 못한 면이 있다.",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "드라마속에서 전과 5범의 사기꾼으로 누구에게도 신뢰를 받지 못하며 관종 취급을 받는다.",
         "장덕수와 성적인 관계를 가지는 것도 하듯이 목적을 위해서는 수단과 방법을 가리지 않는 모습을 보여준다.",
         "게임이 진행되는 와중에 꾸준히 시끄럽고 언행이 거칠고 활발하며 이야기를 많이 한다.",

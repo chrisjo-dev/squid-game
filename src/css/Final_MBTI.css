@@ -44,7 +44,7 @@ p {
     width: 200px;
     height: 200px;
 }
-.mbtiInfo_wrap {
+.mbtiInfo2_wrap {
     width: 300px;
     height: auto;
     line-height: 22.4px;
@@ -71,7 +71,13 @@ p {
     line-height: 22.4px;
     list-style: inside;
     color: white;
+
+    user-select: none; 
+    -webkit-user-select: none;
+
+
     position: relative;
+
 }
 .mbtiInfo_text li, .mbtiInfo2_text li{
     text-indent: -20px;
@@ -79,12 +85,20 @@ p {
     margin-bottom: 12px;
     line-height: 22.4px;
 }
+
+.mbtiInfo_text li span, .mbtiInfo2_text li span {
+    position: relative;
+    left: -7.17px
+}
+.mbtiInfo_wrap {
+
 .mbtiInfo2_text .blurList {
     filter: blur(2px);
     background: #3A0F1F80;
     opacity: 50%;
 }
 .mbtiInfo2_wrap {
+
     width: 300px;
     height: auto;
     line-height: 22.4px;

@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ISFJ",
       mbtiInfo_text: [
+
         "책임감이 강하고 헌신적이다.",
         "치밀성과 반복을 요하는 일을 끝까지 하는 인내력이 높다.",
         "온순하고 차분하다.",
@@ -144,7 +155,7 @@ export default {
         "배려, 겸손 예의를 중시한다.",
         "상대방의 이야기를 경청하고 공감해주지만 본인의 깊은 고민과 이야기는 잘 말하지 않는다. ",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "성기훈의 어머니로서 아버지의 의무를 다하지 못하고 있는 성기훈을 나무라지 않고 끝까지 인내하고 참는 모습을 보인다.",
         "몸이 힘들어도 티 내지 않고 열심히 책임감 있게 일하는 모습을 보여준다.",
         "성기훈의 모습이 탐탁치 않지만 그에게 상처를 주지 않고 차분하게 그를 대하는 모습이 나타난다.",

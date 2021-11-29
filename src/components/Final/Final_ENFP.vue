@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ENFP",
       mbtiInfo_text: [
+
         "열성적이며 활발하고 창의적이다.",
         "철저한 계획을 세우기 보다는 자기 스타일대로 한다.",
         "열정적으로 새 관계를 만들어가며 사람들과 자유롭게 어울리는 것을 즐긴다.",
@@ -145,7 +156,7 @@ export default {
         "한가지 일을 마무리 짓지 않고 다른 일을 새롭게 시작하는 경향이 있다. ",
         "말이 많고 냉철 해야할 때 고민을 많이 한다.",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "드라마내에서 어마어마한 빚이 있을 때, 그 빚을 갚기 위해 도박을 하는 무모한 모습을 보여준다.",
         "조상우와는 반대되는 성격으로, 달고나 게임에서 달고나를 핥아서 뽑는 등, 창의적인 방법으로 문제를 해결하는 능력을 보여준다.",
         "나이 많은 오일남과 아픈 강새벽을 계속 챙겨주듯이, 다른 사람들을 잘 도와주는 성격이다.",

@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "INFJ",
       mbtiInfo_text: [
+
         "창의력과 통찰력이 뛰어나다.",
         "독창성과 사적인 독립심이 강하다. ",
         "확고한 신념과 원칙을 갖고있다.",
@@ -143,7 +154,7 @@ export default {
         "직면한 상황을 다방면으로 바라보고 이해할 수 있는 능력이 뛰어나다.",
         "자기 안에 갈등이 많고 복잡하다 남에게 강요보단 행동과 권유로 사람들의 마음을 움직이는 지도력이 있다.",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "456명 중 제일 연장자로서 싸움이 일어나면 말리고 설득과 이야기로 팀원들을 움직이는 매력이 있는 인물이다.",
         "상냥한 성격으로 남을 배려하는 모습을 자주 보여주고 동시에 게임을 할 때는 집중을 하고 전략을 짜는 냉정한 모습도 보여준다.",
         "달고나 게임과 줄다리기 게임을 할 때 남다른 창의력과 독창력을 발휘하여 팀원들의 무사한 통과를 도와줄 수 있게 끔 한다.",

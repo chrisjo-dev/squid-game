@@ -10,16 +10,22 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
-            <li v-for="(text, i) in mbtiInfo_text" :key="i">{{ text }}</li>
+            <li v-for="(text, i) in mbtiInfo_text" :key="i">
+              <span>{{ text }}</span>
+            </li>
           </ul>
         </section>
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
+
+            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
+              <span>{{ text }}</span>
+
             <LinkShare
               :resultLink="resultLink"
               :homeLink="homeLink"
@@ -30,6 +36,7 @@
             ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
               {{ text }}
+
             </li>
           </ul>
         </section>
@@ -130,11 +137,15 @@ export default {
   data() {
     return {
       showModal: false,
+
+      mbtiInfo2_text: [
+
       resultLink: window.location.href,
       homeLink: window.location.origin,
       blurClass: true,
       mbti: "ISFP",
       mbtiInfo_text: [
+
         "말보다 행동으로 따듯함을 나타낸다.",
         "감정기복이 심하고 공감능력이 좋다.",
         "귀찮음이 많고 의욕이 부족한 편이다.",
@@ -143,7 +154,7 @@ export default {
         "거절과 부정적 반응을 하기 어렵고 양보를 잘한다.",
         "감수성이 예민하고 고민거리나 힘든 일을 혼자 해결하려고 한다.",
       ],
-      mbtiInfo2_text: [
+      mbtiInfo_text: [
         "안타까운 가족사를 갖고 있는 지영은 겉으로는 차가운 인물이지만 구슬게임에서 고의로 져주는 모습애서도 나오듯이 마음이 따듯하고 동정적이다.",
         "강새벽과 친해지기 전에 남에게 쉽게 정을 주지 않고 혼자 있는 모습이 자주 나타난다.",
         "강새벽과 대화 후 뛰어난 공감능력을 바탕으로 동질감을 느끼고 그녀에게 마음의 문을 열면서 따듯함을 나타낸다.",
