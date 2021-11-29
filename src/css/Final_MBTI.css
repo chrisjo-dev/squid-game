@@ -94,7 +94,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #e73e7e;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-radius: 20px;
     background: rgba(231, 62, 126, 0.25);
 }
@@ -105,17 +105,16 @@ p {
     opacity: 50%;
 }
 .mbtiInfo2_wrap {
-
     width: 300px;
     height: auto;
     line-height: 22.4px;
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #e73e7e;
-    margin-bottom: 20px;
+    border: 1px solid #2596a5;
+    margin-bottom: 60px;
     border-radius: 20px;
-    background: rgba(231, 62, 126, 0.25);
+    background: rgba(37, 150, 165, 0.25);
 }
 .typeMatch {
     width: 300px;
@@ -129,7 +128,6 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    margin-top: 60px;
 }
 .typeTitle {
     width: 39px;

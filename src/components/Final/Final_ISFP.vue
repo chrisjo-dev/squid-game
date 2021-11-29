@@ -22,21 +22,16 @@
         <section class="mbtiInfo2">
           <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
-            <li v-for="(text, i) in mbtiInfo2_text" :key="i">
-              <span>{{ text }}</span>
-
-              <LinkShare
-                :resultLink="resultLink"
-                :homeLink="homeLink"
-                :mbti="mbti"
-                :middle="true"
-                v-on:blurClass="blurResult"
-                v-if="!firstTest"
-              ></LinkShare>
-            </li>
-
+            <LinkShare
+              :resultLink="resultLink"
+              :homeLink="homeLink"
+              :mbti="mbti"
+              :middle="true"
+              v-on:blurClass="blurResult"
+              v-if="!firstTest"
+            ></LinkShare>
             <li v-for="(text, i) in mbtiInfo2_text" :key="i" :class="{ blurList: blurClass }">
-              {{ text }}
+              <span>{{ text }}</span>
             </li>
           </ul>
         </section>
