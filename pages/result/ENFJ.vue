@@ -149,8 +149,6 @@
 </template>
 
 <script>
-// import { defineComponent, computed, reactive } from 'vue';
-// import { useHead } from '@vueuse/head';
 import LinkShare from "../../components/LinkShare.vue";
 import Final_Modal from "./Final_Modal.vue";
 
@@ -166,23 +164,6 @@ export default {
       default: false,
     },
   },
-  // setup() {
-  //   const siteData = reactive({
-  //     title: 'My website',
-  //     description: 'My beautiful website',
-  //     image: '/image/meta/metaimg_결과공유_알리압둘.png',
-  //   });
-  //   useHead({
-  //     // Can be static or computed
-  //     title: computed(() => siteData.title),
-  //     meta: [
-  //       {
-  //         property: 'og:image',
-  //         content: computed(() => siteData.image),
-  //       },
-  //     ],
-  //   });
-  // },
   data() {
     return {
       showModal: false,
@@ -214,6 +195,43 @@ export default {
         "게임이 진행되는 동안 팀원들을 배려하고 도와주는 모습을 계속 보여준다.",
         "힘든 상황에서 다른 팀원들을 다독이며 이끄는 모습을 보여준다.",
       ],
+    };
+  },
+  // head: {
+  //   title: "Home page",
+  //   meta: [
+  //     {
+  //       hid: "description",
+  //       name: "description",
+  //       content: "Home page description",
+  //     },
+  //   ],
+  // },
+  head() {
+    return {
+      title: "당신은 오징어게임에서 압둘알리 ENFJ",
+      meta: [
+        {
+          hid: "title",
+          name: "og:title",
+          content: "당신은 오징어게임에서 압둘알리 ENFJ",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: "내가 오징어게임 주인공이라면?",
+        },
+        {
+          hid: "image",
+          name: "og:image",
+          content: `${process.env.baseURL}/image/meta/metaimg_결과공유_알리압둘.png`,
+        },
+      ],
+    };
+  },
+  metaInfo() {
+    return {
+      title: "users",
     };
   },
   created() {
