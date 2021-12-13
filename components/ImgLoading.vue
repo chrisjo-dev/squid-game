@@ -33,6 +33,10 @@
     <img src="~/assets/image/final/한미녀_ESFP_200.png" />
     <img src="~/assets/image/final/황준호_ISTJ_200.png" />
     <img src="~/assets/image/final/VIP_ESTJ_200.png" />
+    <img src="~/assets/image/easterEgg/장덕수_피눈물.png" />
+    <img src="~/assets/image/easterEgg/지옥.png" />
+    <img src="~/assets/image/easterEgg/해골.png" />
+    <img src="~/assets/image/easterEgg/지옥타이틀.png" />
     <audio src="/gunSound.mp3" muted></audio>
   </div>
 </template>

@@ -157,3 +157,19 @@
   right: -20px;
   position: absolute;
 }
+
+/* 이스터 에그 css */
+.easterEgg {
+  color: black;
+}
+.easterTitle {
+  margin-bottom: 20px;
+}
+.easterText {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  font-family: NanumMyeongjo;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23px;
+}
