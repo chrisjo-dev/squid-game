@@ -158,18 +158,43 @@
   position: absolute;
 }
 
-/* 이스터 에그 css */
-.easterEgg {
-  color: black;
+/* 이스터에그 효과 CSS */
+.charImgContainer,
+.easterEggContainer {
+  position: relative;
 }
-.easterTitle {
-  margin-bottom: 20px;
+.bloodImgContainer {
+  position: absolute;
+  top: 0;
+  left: 80px;
 }
-.easterText {
-  margin-top: 20px;
+.charImg {
+  width: 200px;
+  height: 200px;
+}
+.bloodImg {
+  animation: fadein 5s;
+  width: 200px;
+  height: 200px;
+}
+.easterSkull {
   margin-bottom: 60px;
-  font-family: NanumMyeongjo;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 23px;
+  animation: fadein 0.5s;
+}
+.easterHell {
+  margin-bottom: 60px;
+  animation: fadein 5s;
+}
+.easterHellContainer {
+  position: absolute;
+  top: 0;
+  left: 30px;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

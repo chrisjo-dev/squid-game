@@ -1,31 +1,43 @@
 <template>
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
-    <div v-if="!easterHell" class="testMBTI">
-      <p class="testTitle" :class="{ easterEgg: easterEgg }">
-        당신은 오징어게임에서
-      </p>
-      <img
-        :src="require(`~/assets/image/${imgSrc}`)"
-        alt="장덕수 이미지"
-        @click="imgClick"
-      />
-      <p class="mbti" :class="{ easterEgg: easterEgg }">ESTP</p>
-      <p class="charName" :class="{ easterEgg: easterEgg }">장덕수</p>
-      <p class="mbtiSummary" :class="{ easterEgg: easterEgg }">
-        다양한 분야에 관심이 있는 <br />활동적인 인물
-      </p>
+    <div v-if="!easterSkull" class="testMBTI">
+      <p class="testTitle">당신은 오징어게임에서</p>
+      <div class="charImgContainer">
+        <img
+          class="charImg"
+          src="~/assets/image/final/장덕수_ESTP_200.png"
+          alt="장덕수 이미지"
+        />
+        <div class="bloodImgContainer">
+          <img
+            v-if="bloodImg"
+            class="bloodImg"
+            src="~/assets/image/easterEgg/장덕수_피눈물.png"
+            alt="장덕수 피눈물 이미지"
+            @click="imgClick()"
+          />
+        </div>
+      </div>
+      <p class="mbti">ESTP</p>
+      <p class="charName">장덕수</p>
+      <p class="mbtiSummary">다양한 분야에 관심이 있는 <br />활동적인 인물</p>
     </div>
     <div v-else class="testMBTI">
-      <img
-        src="~assets/image/easterEgg/지옥타이틀.png"
-        alt="이스터에그 지옥 타이틀"
-        class="easterTitle"
-      />
-      <img src="~assets/image/easterEgg/지옥.png" alt="이스터에그 지옥" />
-      <p class="easterText">
-        너는 3일후, 오전 9시에 <br />
-        지옥에 간다
-      </p>
+      <div class="easterEggContainer">
+        <img
+          src="~assets/image/easterEgg/해골.png"
+          alt="이스터에그 해골"
+          class="easterSkull"
+        />
+        <div class="easterHellContainer">
+          <img
+            v-if="easterHell"
+            class="easterHell"
+            src="~/assets/image/easterEgg/지옥.png"
+            alt="지옥"
+          />
+        </div>
+      </div>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
@@ -207,8 +219,8 @@ export default {
         "한미녀를 배신할 때도 자신의 생존을 우선시하는 모습을 보였다",
       ],
       firstTest: null,
-      imgSrc: "final/장덕수_ESTP_200.png",
-      easterEgg: false,
+      bloodImg: false,
+      easterSkull: false,
       easterHell: false,
     };
   },
@@ -259,8 +271,8 @@ export default {
     this.resultLink = this.resultLinkResult();
     this.homeLink = this.homeLinkResult();
     setTimeout(() => {
-      this.changeImg();
-    }, 2000);
+      this.bloodImg = true;
+    }, 5000);
   },
   methods: {
     showResult() {
@@ -283,17 +295,11 @@ export default {
     blurResult() {
       this.blurClass = false;
     },
-    changeImg() {
-      this.imgSrc = "easterEgg/장덕수_피눈물.png";
-    },
     imgClick() {
-      if (this.imgSrc.includes("피눈물")) {
-        this.imgSrc = "easterEgg/해골.png";
-        this.easterEgg = true;
-        setTimeout(() => {
-          this.easterHell = true;
-        }, 3000);
-      }
+      this.easterSkull = true;
+      setTimeout(() => {
+        this.easterHell = true;
+      }, 5000);
     },
   },
 };
