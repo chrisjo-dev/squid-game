@@ -153,5 +153,6 @@ export default {
   robots: {
     UserAgent: "*",
     Allow: "/",
+    sitemap: "https://squid-games.site/sitemap.xml",
   },
 };
