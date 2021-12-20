@@ -25,7 +25,7 @@
     <div v-else class="testMBTI">
       <div class="easterEggContainer">
         <img
-          src="~assets/image/easterEgg/해골.png"
+          src="~assets/image/easterEgg/easterSkull.png"
           alt="이스터에그 해골"
           class="easterSkull"
         />
@@ -33,7 +33,7 @@
           <img
             v-if="easterHell"
             class="easterHell"
-            src="~/assets/image/easterEgg/지옥.png"
+            src="~/assets/image/easterEgg/easterHell.png"
             alt="지옥"
           />
         </div>
@@ -272,7 +272,7 @@ export default {
     this.homeLink = this.homeLinkResult();
     setTimeout(() => {
       this.bloodImg = true;
-    }, 5000);
+    }, 2000);
   },
   methods: {
     showResult() {
