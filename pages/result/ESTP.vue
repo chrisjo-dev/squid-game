@@ -2,13 +2,13 @@
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
     <div v-if="!easterSkull" class="testMBTI">
       <p class="testTitle">You Are…</p>
-      <div class="charImgContainer">
+      <figure class="charImgContainer">
         <img
           class="charImg"
           src="~/assets/image/final/장덕수_ESTP_200.png"
           alt="장덕수 이미지"
         />
-        <div class="bloodImgContainer">
+        <figure class="bloodImgContainer">
           <img
             v-if="bloodImg"
             class="bloodImg"
@@ -16,8 +16,8 @@
             alt="장덕수 피눈물 이미지"
             @click="imgClick()"
           />
-        </div>
-      </div>
+        </figure>
+      </figure>
       <p class="charName">Player 101</p>
       <p class="mbtiSummary">
         Interested in various fields.<br />
@@ -25,21 +25,21 @@
       </p>
     </div>
     <div v-else class="testMBTI">
-      <div class="easterEggContainer">
+      <figure class="easterEggContainer">
         <img
           src="~assets/image/easterEgg/easterSkull.png"
           alt="이스터에그 해골"
           class="easterSkull"
         />
-        <div class="easterHellContainer">
+        <figure class="easterHellContainer">
           <img
             v-if="easterHell"
             class="easterHell"
             src="~/assets/image/easterEgg/easterHell_eng.png"
             alt="지옥"
           />
-        </div>
-      </div>
+        </figure>
+      </figure>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
