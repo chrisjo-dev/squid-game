@@ -164,3 +164,47 @@
   right: -20px;
   position: absolute;
 }
+
+/* 이스터에그 효과 CSS */
+.charImgContainer,
+.easterEggContainer {
+  position: relative;
+}
+.bloodImgContainer {
+  position: absolute;
+  top: 0;
+  left: 80px;
+}
+.charImg {
+  width: 200px;
+  height: 200px;
+}
+.bloodImg {
+  animation: fadein 5s;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+.easterSkull {
+  margin-bottom: 60px;
+  animation: fadein 0.5s;
+}
+.easterHell {
+  margin-bottom: 60px;
+  animation: fadein 5s;
+  width: 300px;
+  height: 375px;
+}
+.easterHellContainer {
+  position: absolute;
+  top: 0;
+  left: 30px;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

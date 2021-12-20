@@ -1,17 +1,45 @@
 <template>
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
-    <div class="testMBTI">
+    <div v-if="!easterSkull" class="testMBTI">
       <p class="testTitle">You Are…</p>
-      <img
-        src="~/assets/image/final/장덕수_ESTP_200.png"
-        alt="장덕수 이미지"
-        class="mbtiIMG"
-      />
+      <div class="charImgContainer">
+        <img
+          class="charImg"
+          src="~/assets/image/final/장덕수_ESTP_200.png"
+          alt="장덕수 이미지"
+        />
+        <div class="bloodImgContainer">
+          <img
+            v-if="bloodImg"
+            class="bloodImg"
+            src="~/assets/image/easterEgg/장덕수_피눈물.png"
+            alt="장덕수 피눈물 이미지"
+            @click="imgClick()"
+          />
+        </div>
+      </div>
       <p class="charName">Player 101</p>
       <p class="mbtiSummary">
         Interested in various fields.<br />
         An active person.
       </p>
+    </div>
+    <div v-else class="testMBTI">
+      <div class="easterEggContainer">
+        <img
+          src="~assets/image/easterEgg/easterSkull.png"
+          alt="이스터에그 해골"
+          class="easterSkull"
+        />
+        <div class="easterHellContainer">
+          <img
+            v-if="easterHell"
+            class="easterHell"
+            src="~/assets/image/easterEgg/easterHell_eng.png"
+            alt="지옥"
+          />
+        </div>
+      </div>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
@@ -196,6 +224,9 @@ export default {
         "Just as he betrays his teammates when he decides that there is no benefit, he easily turns around when it deviates from realistic standards. Even when he betrayed player 212, he showed that he prioritized his own survival.",
       ],
       firstTest: null,
+      bloodImg: false,
+      easterSkull: false,
+      easterHell: false,
     };
   },
   head() {
@@ -244,6 +275,9 @@ export default {
     }
     this.resultLink = this.resultLinkResult();
     this.homeLink = this.homeLinkResult();
+    setTimeout(() => {
+      this.bloodImg = true;
+    }, 2000);
   },
   methods: {
     showResult() {
@@ -265,6 +299,12 @@ export default {
     },
     blurResult() {
       this.blurClass = false;
+    },
+    imgClick() {
+      this.easterSkull = true;
+      setTimeout(() => {
+        this.easterHell = true;
+      }, 5000);
     },
   },
 };

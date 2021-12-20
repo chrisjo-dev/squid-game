@@ -35,6 +35,7 @@
     <img src="~/assets/image/final/VIP_ESTJ_200.png" />
     <img src="~/assets/image/easterEgg/장덕수_피눈물.png" />
     <img src="~/assets/image/easterEgg/easterHell.png" />
+    <img src="~/assets/image/easterEgg/easterHell_eng.png" />
     <img src="~/assets/image/easterEgg/easterSkull.png" />
     <audio src="/gunSound.mp3" muted></audio>
   </div>
