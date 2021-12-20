@@ -334,6 +334,9 @@ export default {
   cursor: pointer;
 }
 .charInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 14px;
   text-align: left;
 }

@@ -20,8 +20,7 @@
           <p class="mbtiInfo_summary">Player 212</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
-              <span>{{ text }}</span
-              >/li>
+              <span>{{ text }}</span>
             </li>
           </ul>
         </section>

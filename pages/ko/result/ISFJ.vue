@@ -5,7 +5,7 @@
       <img
         src="~/assets/image/final/성기훈어머니_ISFJ_200.png"
         alt="성기훈어머니 이미지"
-        class="mbtiIMG"
+        class="mbtiIMG ISFJ"
       />
       <p class="mbti">ISFJ</p>
       <p class="charName">성기훈의 어머니</p>
@@ -149,8 +149,8 @@
 </template>
 
 <script>
-import LinkShare from "~/components/LinkShare.vue";
 import Final_Modal from "./Final_Modal.vue";
+import LinkShare from "~/components/LinkShare.vue";
 
 export default {
   name: "FinalISFJ",
