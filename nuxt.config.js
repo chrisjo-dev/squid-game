@@ -19,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: "squid-game",
+      title: "Squid-Game Test",
       htmlAttrs: {
         lang: "ko",
       },
@@ -153,6 +153,7 @@ export default {
   robots: {
     UserAgent: "*",
     Allow: "/",
+    Disallow: "/admin",
     sitemap: "https://squid-games.site/sitemap.xml",
   },
 };
