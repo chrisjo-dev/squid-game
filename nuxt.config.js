@@ -20,9 +20,6 @@ export default {
   head() {
     return {
       title: "Squid-Game Test",
-      htmlAttrs: {
-        lang: "ko",
-      },
       meta: [
         { charset: "utf-8" },
         {
@@ -77,6 +74,7 @@ export default {
         },
       ],
       link: [
+        { rel: "canonical", content: "squid-games.site" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "stylesheet",
