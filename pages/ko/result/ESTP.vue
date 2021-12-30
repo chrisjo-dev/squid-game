@@ -226,6 +226,7 @@ export default {
       easterSkull: false,
       easterHell: false,
       imgNum: 1,
+      imgDelay: true,
     };
   },
   head() {
@@ -267,6 +268,13 @@ export default {
       ],
     };
   },
+  watch: {
+    imgNum() {
+      setTimeout(() => {
+        this.imgDelay = true;
+      }, 1000);
+    },
+  },
   created() {
     if (this.$route.query.firstTest) {
       this.firstTest = this.$route.query.firstTest;
@@ -300,15 +308,16 @@ export default {
       this.bloodImg = true;
     },
     easterImgClick() {
-      setTimeout(() => {
+      if (this.imgDelay) {
         this.imgNum++;
-        if (this.imgNum === 4) {
-          this.easterSkull = true;
-          setTimeout(() => {
-            this.easterHell = true;
-          }, 5000);
-        }
-      }, 1500);
+        this.imgDelay = false;
+      }
+      if (this.imgNum === 4) {
+        this.easterSkull = true;
+        setTimeout(() => {
+          this.easterHell = true;
+        }, 5000);
+      }
     },
   },
 };
