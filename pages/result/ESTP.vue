@@ -7,12 +7,15 @@
           class="charImg"
           src="~/assets/image/final/장덕수_ESTP_200.png"
           alt="장덕수 이미지"
+          @click="imgClick()"
         />
         <figure class="bloodImgContainer">
           <img
             v-if="bloodImg"
             class="bloodImg"
-            src="~/assets/image/easterEgg/장덕수_피눈물.png"
+            :src="
+              require(`~/assets/image/easterEgg/장덕수_피눈물${imgNum}.png`)
+            "
             alt="장덕수 피눈물 이미지"
             @click="imgClick()"
           />
@@ -227,6 +230,7 @@ export default {
       bloodImg: false,
       easterSkull: false,
       easterHell: false,
+      imgNum: 0,
     };
   },
   head() {
@@ -275,9 +279,6 @@ export default {
     }
     this.resultLink = this.resultLinkResult();
     this.homeLink = this.homeLinkResult();
-    setTimeout(() => {
-      this.bloodImg = true;
-    }, 2000);
   },
   methods: {
     showResult() {
@@ -301,10 +302,14 @@ export default {
       this.blurClass = false;
     },
     imgClick() {
-      this.easterSkull = true;
-      setTimeout(() => {
-        this.easterHell = true;
-      }, 5000);
+      if (!this.imgNum) this.bloodImg = true;
+      this.imgNum++;
+      if (this.imgNum === 4) {
+        this.easterSkull = true;
+        setTimeout(() => {
+          this.easterHell = true;
+        }, 5000);
+      }
     },
   },
 };

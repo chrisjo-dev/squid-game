@@ -171,6 +171,7 @@
 .charImg {
   width: 200px;
   height: 200px;
+  cursor: pointer;
 }
 .bloodImg {
   animation: fadein 5s;
