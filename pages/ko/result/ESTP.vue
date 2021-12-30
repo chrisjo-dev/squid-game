@@ -17,7 +17,7 @@
               require(`~/assets/image/easterEgg/장덕수_피눈물${imgNum}.png`)
             "
             alt="장덕수 피눈물 이미지"
-            @click="imgClick()"
+            @click="easterImgClick()"
           />
         </figure>
       </figure>
@@ -225,7 +225,7 @@ export default {
       bloodImg: false,
       easterSkull: false,
       easterHell: false,
-      imgNum: 0,
+      imgNum: 1,
     };
   },
   head() {
@@ -297,14 +297,18 @@ export default {
       this.blurClass = false;
     },
     imgClick() {
-      if (!this.imgNum) this.bloodImg = true;
-      this.imgNum++;
-      if (this.imgNum === 4) {
-        this.easterSkull = true;
-        setTimeout(() => {
-          this.easterHell = true;
-        }, 5000);
-      }
+      this.bloodImg = true;
+    },
+    easterImgClick() {
+      setTimeout(() => {
+        this.imgNum++;
+        if (this.imgNum === 4) {
+          this.easterSkull = true;
+          setTimeout(() => {
+            this.easterHell = true;
+          }, 5000);
+        }
+      }, 1500);
     },
   },
 };
