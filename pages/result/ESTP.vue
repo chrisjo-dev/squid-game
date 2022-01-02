@@ -182,6 +182,13 @@
       @closeModal="closeModal"
     >
     </Final_Modal>
+    <div class="hideImg">
+      <img src="~/assets/image/easterEgg/장덕수_피눈물1.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물2.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물3.png" />
+      <img src="~/assets/image/easterEgg/easterHell_eng.png" />
+      <img src="~/assets/image/easterEgg/easterSkull.png" />
+    </div>
   </div>
 </template>
 
@@ -231,6 +238,7 @@ export default {
       easterSkull: false,
       easterHell: false,
       imgNum: 1,
+      imgDelay: true,
     };
   },
   head() {
@@ -272,6 +280,13 @@ export default {
       ],
     };
   },
+  watch: {
+    imgNum() {
+      setTimeout(() => {
+        this.imgDelay = true;
+      }, 1000);
+    },
+  },
   created() {
     if (this.$route.query.firstTest) {
       this.firstTest = this.$route.query.firstTest;
@@ -305,15 +320,18 @@ export default {
       this.bloodImg = true;
     },
     easterImgClick() {
-      setTimeout(() => {
+      if (this.imgDelay && this.imgNum < 3) {
         this.imgNum++;
-        if (this.imgNum === 4) {
+        this.imgDelay = false;
+      }
+      if (this.imgNum <= 3) {
+        setTimeout(() => {
           this.easterSkull = true;
           setTimeout(() => {
             this.easterHell = true;
-          }, 5000);
-        }
-      }, 1500);
+          }, 2000);
+        }, 5000);
+      }
     },
   },
 };
@@ -321,4 +339,8 @@ export default {
 
 <style scoped>
 @import "~/assets/css/Final_MBTI_EN.css";
+.hideImg img {
+  width: 0;
+  height: 0;
+}
 </style>

@@ -176,6 +176,13 @@
       @closeModal="closeModal"
     >
     </Final_Modal>
+    <div class="hideImg">
+      <img src="~/assets/image/easterEgg/장덕수_피눈물1.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물2.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물3.png" />
+      <img src="~/assets/image/easterEgg/easterHell.png" />
+      <img src="~/assets/image/easterEgg/easterSkull.png" />
+    </div>
   </div>
 </template>
 
@@ -308,14 +315,16 @@ export default {
       this.bloodImg = true;
     },
     easterImgClick() {
-      if (this.imgDelay) {
+      if (this.imgDelay && this.imgNum < 3) {
         this.imgNum++;
         this.imgDelay = false;
       }
-      if (this.imgNum === 4) {
-        this.easterSkull = true;
+      if (this.imgNum <= 3) {
         setTimeout(() => {
-          this.easterHell = true;
+          this.easterSkull = true;
+          setTimeout(() => {
+            this.easterHell = true;
+          }, 2000);
         }, 5000);
       }
     },
@@ -325,4 +334,8 @@ export default {
 
 <style scoped>
 @import "~/assets/css/Final_MBTI.css";
+.hideImg img {
+  width: 0;
+  height: 0;
+}
 </style>
