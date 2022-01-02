@@ -33,6 +33,12 @@
     <img src="~/assets/image/final/한미녀_ESFP_200.png" />
     <img src="~/assets/image/final/황준호_ISTJ_200.png" />
     <img src="~/assets/image/final/VIP_ESTJ_200.png" />
+    <img src="~/assets/image/easterEgg/장덕수_피눈물1.png" />
+    <img src="~/assets/image/easterEgg/장덕수_피눈물2.png" />
+    <img src="~/assets/image/easterEgg/장덕수_피눈물3.png" />
+    <img src="~/assets/image/easterEgg/easterHell.png" />
+    <img src="~/assets/image/easterEgg/easterHell_eng.png" />
+    <img src="~/assets/image/easterEgg/easterSkull.png" />
     <audio src="/gunSound.mp3" muted></audio>
   </div>
 </template>

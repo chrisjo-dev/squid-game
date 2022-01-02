@@ -46,12 +46,12 @@
 <script>
 export default {
   name: "MainPage",
-  middleware({ req, redirect }) {
-    const locale = req?.headers["accept-language"]?.substring(0, 2);
-    if (locale === "ko") {
-      return redirect("/ko");
-    }
-  },
+  // middleware({ req, redirect }) {
+  //   const locale = req?.headers["accept-language"]?.substring(0, 2);
+  //   if (locale === "ko") {
+  //     return redirect("/ko");
+  //   }
+  // },
   props: {},
   data() {
     return {

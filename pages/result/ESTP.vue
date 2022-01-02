@@ -1,17 +1,48 @@
 <template>
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
-    <div class="testMBTI">
+    <div v-if="!easterSkull" class="testMBTI">
       <p class="testTitle">You Are…</p>
-      <img
-        src="~/assets/image/final/장덕수_ESTP_200.png"
-        alt="장덕수 이미지"
-        class="mbtiIMG"
-      />
+      <figure class="charImgContainer">
+        <img
+          class="charImg"
+          src="~/assets/image/final/장덕수_ESTP_200.png"
+          alt="장덕수 이미지"
+          @click="imgClick()"
+        />
+        <figure class="bloodImgContainer">
+          <img
+            v-if="bloodImg"
+            class="bloodImg"
+            :src="
+              require(`~/assets/image/easterEgg/장덕수_피눈물${imgNum}.png`)
+            "
+            alt="장덕수 피눈물 이미지"
+            @click="easterImgClick()"
+          />
+        </figure>
+      </figure>
       <p class="charName">Player 101</p>
       <p class="mbtiSummary">
         Interested in various fields.<br />
         An active person.
       </p>
+    </div>
+    <div v-else class="testMBTI">
+      <figure class="easterEggContainer">
+        <img
+          src="~assets/image/easterEgg/easterSkull.png"
+          alt="이스터에그 해골"
+          class="easterSkull"
+        />
+        <figure class="easterHellContainer">
+          <img
+            v-if="easterHell"
+            class="easterHell"
+            src="~/assets/image/easterEgg/easterHell_eng.png"
+            alt="지옥"
+          />
+        </figure>
+      </figure>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
@@ -151,6 +182,13 @@
       @closeModal="closeModal"
     >
     </Final_Modal>
+    <div class="hideImg">
+      <img src="~/assets/image/easterEgg/장덕수_피눈물1.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물2.png" />
+      <img src="~/assets/image/easterEgg/장덕수_피눈물3.png" />
+      <img src="~/assets/image/easterEgg/easterHell_eng.png" />
+      <img src="~/assets/image/easterEgg/easterSkull.png" />
+    </div>
   </div>
 </template>
 
@@ -196,6 +234,11 @@ export default {
         "Just as he betrays his teammates when he decides that there is no benefit, he easily turns around when it deviates from realistic standards. Even when he betrayed player 212, he showed that he prioritized his own survival.",
       ],
       firstTest: null,
+      bloodImg: false,
+      easterSkull: false,
+      easterHell: false,
+      imgNum: 1,
+      imgDelay: true,
     };
   },
   head() {
@@ -237,6 +280,13 @@ export default {
       ],
     };
   },
+  watch: {
+    imgNum() {
+      setTimeout(() => {
+        this.imgDelay = true;
+      }, 1000);
+    },
+  },
   created() {
     if (this.$route.query.firstTest) {
       this.firstTest = this.$route.query.firstTest;
@@ -266,10 +316,31 @@ export default {
     blurResult() {
       this.blurClass = false;
     },
+    imgClick() {
+      this.bloodImg = true;
+    },
+    easterImgClick() {
+      if (this.imgDelay && this.imgNum < 3) {
+        this.imgNum++;
+        this.imgDelay = false;
+      }
+      if (this.imgNum <= 3) {
+        setTimeout(() => {
+          this.easterSkull = true;
+          setTimeout(() => {
+            this.easterHell = true;
+          }, 2000);
+        }, 5000);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
 @import "~/assets/css/Final_MBTI_EN.css";
+.hideImg img {
+  width: 0;
+  height: 0;
+}
 </style>
