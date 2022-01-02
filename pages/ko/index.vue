@@ -91,7 +91,7 @@ export default {
   },
   mounted() {
     this.$store.commit("clearTimer");
-    this.homeLink = window.location.origin;
+    this.homeLink = `${window.location.origin}/ko/`;
   },
   methods: {
     urlLink() {
@@ -129,7 +129,7 @@ export default {
     facebookLink() {
       if (process.browser) {
         window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${process.env.baseURL}/ko&src=sdkpreparse`,
+          `https://www.facebook.com/sharer/sharer.php?u=${this.homeLink}&src=sdkpreparse`,
           "pop01",
           "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
         );
@@ -139,7 +139,7 @@ export default {
       const text = "저랑 게임 하나 하시겠습니까?";
       if (process.browser) {
         window.open(
-          `https://twitter.com/intent/tweet?text=${text}&url=${this.homeLink}/ko&hashtags=오징어게임,심리테스트`,
+          `https://twitter.com/intent/tweet?text=${text}&url=${this.homeLink}&hashtags=오징어게임,심리테스트`,
           "pop02",
           "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
         );
