@@ -73,7 +73,7 @@ export default {
       this.timerStop = true;
       setTimeout(() => {
         this.$router.push({
-          path: `questions`,
+          path: `/ko/questions`,
         });
       }, 800);
     },

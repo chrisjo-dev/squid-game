@@ -254,7 +254,7 @@ export default {
       });
     },
     testRestart() {
-      this.$router.push({ name: "index" });
+      this.$router.push({ path: "/ko" });
     },
     returnResult() {
       this.$router.go(-1);
