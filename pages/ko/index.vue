@@ -16,6 +16,18 @@
           </button>
         </NuxtLink>
       </nav>
+      <ins
+        class="kakao_ad_area"
+        style="display: none; margin-top: 20px"
+        data-ad-unit="DAN-DapT5LN4BAAKW3yO"
+        data-ad-width="320"
+        data-ad-height="50"
+      ></ins>
+      <script
+        type="text/javascript"
+        src="//t1.daumcdn.net/kas/static/ba.min.js"
+        async
+      ></script>
       <article>
         <p class="share_box">공유하기</p>
         <article class="share_btn">
