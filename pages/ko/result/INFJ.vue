@@ -149,8 +149,8 @@
 </template>
 
 <script>
-import LinkShare from "~/components/LinkShare.vue";
 import Final_Modal from "./Final_Modal.vue";
+import LinkShare from "~/components/LinkShare.vue";
 
 export default {
   name: "FinalINFJ",
@@ -253,7 +253,7 @@ export default {
       });
     },
     testRestart() {
-      this.$router.push({ name: "index" });
+      this.$router.push({ path: "/ko" });
     },
     returnResult() {
       this.$router.go(-1);

@@ -5,7 +5,7 @@
     <img class="mainImg" src="~/assets/image/main.png" />
     <section>
       <nav>
-        <router-link :to="{ path: 'ko/tutorial' }">
+        <NuxtLink to="/ko/tutorial">
           <button id="start_btn" type="button">
             테스트하기
             <svg class="svg-icon-angle" viewBox="0 0 1024 1024" version="1.1">
@@ -14,7 +14,7 @@
               />
             </svg>
           </button>
-        </router-link>
+        </NuxtLink>
       </nav>
       <article>
         <p class="share_box">공유하기</p>
@@ -91,7 +91,7 @@ export default {
   },
   mounted() {
     this.$store.commit("clearTimer");
-    this.homeLink = `${window.location.origin}/ko/`;
+    this.homeLink = `${window.location.origin}/ko`;
   },
   methods: {
     urlLink() {

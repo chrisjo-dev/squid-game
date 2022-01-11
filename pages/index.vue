@@ -10,7 +10,7 @@
 
     <section>
       <nav>
-        <router-link :to="{ name: 'tutorial' }">
+        <NuxtLink to="/tutorial">
           <button id="start_btn" type="button">
             Test
             <svg class="svg-icon-angle" viewBox="0 0 1024 1024" version="1.1">
@@ -19,7 +19,7 @@
               />
             </svg>
           </button>
-        </router-link>
+        </NuxtLink>
       </nav>
       <article>
         <p class="share_box">Share</p>

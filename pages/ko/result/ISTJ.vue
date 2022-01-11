@@ -251,7 +251,7 @@ export default {
       this.$router.push({ name: "index" });
     },
     returnResult() {
-      this.$router.go(-1);
+      this.$router.push({ path: "/ko" });
     },
     blurResult() {
       this.blurClass = false;
