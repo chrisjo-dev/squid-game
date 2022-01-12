@@ -18,10 +18,10 @@
       </nav>
       <ins
         class="kakao_ad_area"
-        style="display: none; margin-top: 20px"
-        data-ad-unit="DAN-DapT5LN4BAAKW3yO"
+        style="display: none; margin-top: 10px"
+        data-ad-unit="DAN-PhZrS026JE8pku05"
         data-ad-width="320"
-        data-ad-height="50"
+        data-ad-height="100"
       ></ins>
       <script
         type="text/javascript"
