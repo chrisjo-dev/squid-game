@@ -109,10 +109,12 @@ export default {
       }
     },
     facebookLink(mbti) {
+      let fb_url = `/result/${mbti.toLowerCase()}`;
+      if (!this.eng) {
+        fb_url = `/ko/result/${mbti.toLowerCase()}`;
+      }
       window.open(
-        `https://www.facebook.com/sharer/sharer.php?u=${
-          process.env.baseURL
-        }/result/${mbti.toLowerCase()}&src=sdkpreparse`,
+        `https://www.facebook.com/sharer/sharer.php?u=${process.env.baseURL}/${fb_url}&src=sdkpreparse`,
         "pop01",
         "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
       );
