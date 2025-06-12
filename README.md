@@ -1,161 +1,112 @@
-# 오징어게임 심리테스트
 
-> 한국 / 글로벌 두 버전을 만들어 전 세계 사용자를 대상으로 한 프로젝트입니다.
->
-> 전 세계 사용자를 대비하여 인프라를 구축하였습니다.
-
-<br>
-
+# 🦑 오징어게임 심리테스트
 ![notion_header](https://user-images.githubusercontent.com/85085844/146677929-d30f3272-68a4-4afe-bb3f-288affe52c76.png)
 
-<br>
-<br>
+<p align="center">
+  <strong>🛠️ Tech Stack</strong><br />
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=aws,vue,nuxt,js,css,html,git,github,netlify" />
+  </a>
+</p>
 
-## 🦑 전 세계는 지금 오징어게임 열풍!
+넷플릭스 드라마 '**오징어 게임**'의 세계관을 기반으로 한 심리테스트 웹 애플리케이션입니다.
+사용자는 드라마의 주요 장면을 모티브로 구성된 질문에 응답하며, 그 심리적 선택을 바탕으로 MBTI 기반 성격 유형을 분석받을 수 있습니다.
+한국어와 영어를 지원하여 글로벌 사용자들도 참여할 수 있도록 설계되었습니다.
 
-넷플릭스 드라마 "오징어 게임"에 과몰입한 사람들은 주목!!
+# 🎯 프로젝트 배경
+실무 경험이 전무한 취업 준비생 시절, 실제 사용자 트래픽을 처리하며 기획부터 배포까지 전 과정을 직접 수행하는 경험을 쌓고자 이 프로젝트를 시작하였습니다.
+이러한 전 과정을 통해 서비스 전체를 기획·개발·운영하며 사용자 트래픽을 감당하는 프로젝트를 완성하였고, 이 경험은 이후의 모든 실무 역량의 기반이 되었습니다.
 
-실제 드라마의 장면들로 구성된 심리테스트를 진행하면서 <br>
-내가 어떤 캐릭터와 비슷한지 분석해봐요 ! ㅇㅅㅁ
+2021년, 넷플릭스 드라마 **'오징어 게임'**이 전 세계적으로 큰 인기를 끌면서 다양한 콘텐츠와 밈이 생성되었습니다.
+이러한 문화적 현상에 영감을 받아, 사용자들이 드라마의 세계관을 체험하면서 동시에 자신의 성격 유형을 탐색할 수 있는 인터랙티브한 웹 애플리케이션을 개발하게 되었습니다.
 
-<br>
+이 프로젝트는 단순한 팬 콘텐츠를 넘어, 사용자의 심리적 반응을 분석하고 이를 MBTI 성격 유형과 연결하여 제공함으로써, 엔터테인먼트와 자기 이해를 동시에 추구하는 목적을 가지고 있습니다.
 
-## 🙆‍♀️ 사용자
 
-- 넷플릭스 드라마 "오징어 게임"을 재밌게 본 사람
-- 긴박한 상황의 심리테스트를 해보고 싶은 사람
-
-<br>
-
-## 🖥 사이트
-
+# 🌐 데모 사이트
 https://squid-games.site
 
-<br>
+# 🧑‍💻 대상 사용자
+- '오징어 게임' 드라마를 시청하고 흥미를 느낀 분
 
-## ⏱ 개발 기간
+- 긴박한 상황에서의 심리 반응을 테스트해보고 싶은 분
 
-- 2021.11~ 2021.12
-- 사용자의 피드백을 받아 개선할 예정
+- MBTI 성격 유형에 관심이 있는 분
 
-<br>
+# 🛠️ 기술 스택 및 구현 상세
+이 프로젝트는 단순한 프론트엔드 구현을 넘어, 실제 서비스 운영을 위한 다양한 기술 요소를 통합하여 개발되었습니다.
 
-##
+### 🔧 프론트엔드
+Vue.js: 컴포넌트 기반 아키텍처를 활용하여 재사용성과 유지보수성을 높였습니다.
 
-<br>
+Nuxt.js: 서버 사이드 렌더링(SSR)을 통해 초기 로딩 속도를 개선하고, SEO 최적화를 달성했습니다.
 
-## ⚙️ 기술 스택
+Vuex: 상태 관리를 통해 사용자 진행 상황 및 결과 데이터를 효율적으로 관리했습니다.
 
-- Front
-  - Vue.JS
-  - Nuxt.JS
+Vue Router: 다국어 지원 및 결과 페이지 라우팅을 구현하여 사용자 경험을 향상시켰습니다.
 
-<br>
+### 🎨 UI/UX 및 스타일링
+CSS3: 반응형 디자인을 적용하여 다양한 디바이스에서 일관된 사용자 경험을 제공합니다.
 
-## 💻 설치 방법
+Custom Animation: 드라마의 긴장감을 반영한 애니메이션 효과를 통해 몰입감을 높였습니다.
 
+### 🌐 다국어 지원
+i18n: 국제화(i18n) 모듈을 활용하여 한국어와 영어를 지원하며, 글로벌 사용자 접근성을 고려했습니다.
+
+### 🚀 배포 및 운영
+AWS: 정적 사이트 호스팅을 통해 빠른 배포와 안정적인 서비스를 제공했습니다.
+
+CI/CD: GitHub Actions를 활용하여 자동화된 빌드 및 배포 파이프라인을 구축했습니다.
+
+### 📊 분석 및 모니터링
+Google Analytics: 사용자 행동 분석을 통해 서비스 개선 방향을 도출했습니다.
+
+Sentry: 에러 모니터링을 통해 실시간으로 문제를 감지하고 대응할 수 있었습니다.
+
+
+# ⚙️ 설치 및 실행 방법
+
+### 의존성 설치
 ```
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-
-```
-
-<br>
-
-## 🛠 프로젝트 구조
-
-```bash
-├── assets
-│   ├── css
-│   │   ├── Final_MBTI.css
-│   │   ├── reset.css
-│   │   └── styles.css
-│   ├── image
-│       ├── easterEgg
-│       └── final
-├── components
-│   ├── EventPage.vue
-│   ├── ImgLoading.vue
-│   ├── LinkShare.vue
-│   ├── TestLoading.vue
-│   ├── TimeOut.vue
-│   └── testpopup.vue
-├── layouts
-│   └── error.vue
-├── nuxt.config.js
-├── pages
-│   ├── index.vue
-│   ├── ko
-│   │   ├── index.vue
-│   │   ├── questions.vue
-│   │   ├── result
-│   │   │   ├── ENFJ.vue
-│   │   │   ├── ENFP.vue
-│   │   │   ├── ENTJ.vue
-│   │   │   ├── ENTP.vue
-│   │   │   ├── ESFJ.vue
-│   │   │   ├── ESFP.vue
-│   │   │   ├── ESTJ.vue
-│   │   │   ├── ESTP.vue
-│   │   │   ├── Final_Modal.vue
-│   │   │   ├── INFJ.vue
-│   │   │   ├── INFP.vue
-│   │   │   ├── INTJ.vue
-│   │   │   ├── INTP.vue
-│   │   │   ├── ISFJ.vue
-│   │   │   ├── ISFP.vue
-│   │   │   ├── ISTJ.vue
-│   │   │   └── ISTP.vue
-│   │   └── tutorial.vue
-│   ├── questions.vue
-│   ├── result
-│   │   ├── ENFJ.vue
-│   │   ├── ENFP.vue
-│   │   ├── ENTJ.vue
-│   │   ├── ENTP.vue
-│   │   ├── ESFJ.vue
-│   │   ├── ESFP.vue
-│   │   ├── ESTJ.vue
-│   │   ├── ESTP.vue
-│   │   ├── Final_Modal.vue
-│   │   ├── INFJ.vue
-│   │   ├── INFP.vue
-│   │   ├── INTJ.vue
-│   │   ├── INTP.vue
-│   │   ├── ISFJ.vue
-│   │   ├── ISFP.vue
-│   │   ├── ISTJ.vue
-│   │   └── ISTP.vue
-│   └── tutorial.vue
-├── static
-│   └── image
-│       └── meta
-└── store
+npm install
 ```
 
-<br>
+### 개발 서버 실행 (http://localhost:3000)
+```
+npm run dev
+```
 
-## 📑 기획 및 설계
+### 프로덕션 빌드 및 서버 실행
+```
+npm run build
+npm run start
+```
+
+### 정적 사이트 생성
+```
+npm run generate
+```
+
+# 📅 개발 기간
+- 2021년 11월 ~ 2021년 12월
+- 사용자 피드백을 반영하여 지속적으로 개선 예정
+
+# 📑 기획 및 설계
 
 - [스프린트](https://www.notion.so/ddusi/Sprint-Board-43ccbde594cc41c0b54a82d446ef44db)
 - [페이지 상세 설명](https://github.com/ddusi/squid-game/wiki)
 
-<br>
 
-## 🔖 역할 분담
+# 👥 팀 구성 및 역할
+PO / 프론트엔드 & 백엔드 개발: 조원상
 
-- 팀장 : 조원상
-- 기획 : 노준서
-- 디자인 : 진승희
-- FE,BE : 조원상
-- FE : 김수진
+기획: 노준서
+
+디자인: 진승희
+
+프론트엔드 개발: 김수진
+
+# 📄 라이선스
+이 프로젝트는 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다.
+
+
