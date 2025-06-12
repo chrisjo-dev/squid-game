@@ -37,8 +37,8 @@
       </article>
     </section>
     <footer class="email">
-      <small>Feedback</small>
-      <small>wonsang.dev@gmail.com</small>
+      <span>Feedback</span>
+      <span>wonsang.dev@gmail.com</span>
     </footer>
   </main>
 </template>
@@ -158,11 +158,11 @@ const twitterLink = () => {
   margin-bottom: 60px;
   color: #888888;
   font-family: Roboto;
-  font-size: 10px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 16px;
 }
-.email small:nth-child(1) {
+.email span:nth-child(1) {
   margin-right: 8px;
 }
 </style>
