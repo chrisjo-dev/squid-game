@@ -7,6 +7,7 @@
         alt="강새벽 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">INFP</p>
       <p class="charName">Player 067</p>
       <p class="mbtiSummary">
         Values belief<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

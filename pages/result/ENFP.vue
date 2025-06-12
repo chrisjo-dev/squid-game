@@ -7,6 +7,7 @@
         alt="성기훈 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ENFP</p>
       <p class="charName">Player 456</p>
       <p class="mbtiSummary">
         Passionate,<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

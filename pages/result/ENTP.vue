@@ -7,6 +7,7 @@
         alt="의문남 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ENTP</p>
       <p class="charName">Salesman</p>
       <p class="mbtiSummary">
         Full of confidence and energy.<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

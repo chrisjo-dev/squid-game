@@ -162,12 +162,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

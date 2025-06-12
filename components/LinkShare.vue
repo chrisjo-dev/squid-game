@@ -61,27 +61,69 @@ export default {
       shareHide: false,
     };
   },
+  computed: {
+    baseURL() {
+      const config = useRuntimeConfig();
+      return config.public.baseURL;
+    }
+  },
   methods: {
-    urlLink(link) {
-      this.$copyText(link).then(function () {
-        alert("복사되었습니다.");
-      });
+    async urlLink(link) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(link);
+          alert("복사되었습니다.");
+        } else {
+          // Fallback for older browsers
+          const textArea = document.createElement("textarea");
+          textArea.value = link;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            alert("복사되었습니다.");
+          } catch (err) {
+            alert("복사에 실패했습니다.");
+          }
+          document.body.removeChild(textArea);
+        }
+      } catch (err) {
+        alert("복사에 실패했습니다.");
+      }
     },
-    urlLink_eng(link) {
-      this.$copyText(link).then(function () {
-        alert("Copied Successfully");
-      });
+    async urlLink_eng(link) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(link);
+          alert("Copied Successfully");
+        } else {
+          // Fallback for older browsers
+          const textArea = document.createElement("textarea");
+          textArea.value = link;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            alert("Copied Successfully");
+          } catch (err) {
+            alert("Copy failed");
+          }
+          document.body.removeChild(textArea);
+        }
+      } catch (err) {
+        alert("Copy failed");
+      }
     },
     kakaoLink(resultLink, homeLink) {
-      if (process.browser) {
+      if (process.client) {
         window.Kakao.Link.sendDefault({
           objectType: "feed",
           content: {
             title: "저랑 게임 하나 하시겠습니까? ",
             description: "나는 오징어 게임에서 어떤 캐릭터일까?",
-            imageUrl: `${
-              process.env.baseURL
-            }/image/meta/metaimg_${this.mbti.toLowerCase()}.png`,
+            imageUrl: `${this.baseURL}/image/meta/metaimg_${this.mbti.toLowerCase()}.png`,
             imageWidth: 800,
             imageHeight: 400,
             link: {
@@ -109,12 +151,12 @@ export default {
       }
     },
     facebookLink(mbti) {
-      let fb_url = `/result/${mbti.toLowerCase()}`;
+      let fb_url = `result/${mbti.toLowerCase()}`;
       if (!this.eng) {
-        fb_url = `/ko/result/${mbti.toLowerCase()}`;
+        fb_url = `ko/result/${mbti.toLowerCase()}`;
       }
       window.open(
-        `https://www.facebook.com/sharer/sharer.php?u=${process.env.baseURL}/${fb_url}&src=sdkpreparse`,
+        `https://www.facebook.com/sharer/sharer.php?u=${this.baseURL}/${fb_url}&src=sdkpreparse`,
         "pop01",
         "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
       );

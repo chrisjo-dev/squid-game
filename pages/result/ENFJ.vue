@@ -7,6 +7,7 @@
         alt="알리압둘 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ENFJ</p>
       <p class="charName">Player 199</p>
       <p class="mbtiSummary">
         Makes people happy.<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

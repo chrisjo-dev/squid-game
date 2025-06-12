@@ -7,6 +7,7 @@
         alt="주최자 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">INTJ</p>
       <p class="charName">Game Host</p>
       <p class="mbtiSummary">
         Creative in thinking<br />
@@ -68,7 +69,7 @@
               src="~/assets/image/final/조상우맘_ESFJ_100.png"
               alt="INTJ와 잘맞는 유형"
             />
-            <p class="typeCharName">Player 218’s Mother</p>
+            <p class="typeCharName">Player 218's Mother</p>
             <p class="typeCharInfo">
               Sympathetic and patient. <br />
               Conscientious person.
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

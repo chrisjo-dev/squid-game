@@ -23,11 +23,6 @@
         data-ad-width="320"
         data-ad-height="100"
       ></ins>
-      <script
-        type="text/javascript"
-        src="//t1.daumcdn.net/kas/static/ba.min.js"
-        async
-      ></script>
       <article>
         <p class="share_box">공유하기</p>
         <article class="share_btn">
@@ -53,112 +48,110 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: "MainPage",
-  props: {},
-  data() {
-    return {
-      homeLink: "",
-      data: null,
-    };
-  },
-  head() {
-    return {
-      meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "오징어게임 MBTI 테스트",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "나는 오징어게임에서 어떤 인물일까?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_main.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "오징어게임 MBTI 테스트",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "나는 오징어게임에서 어떤 인물일까?",
-        },
+<script setup>
+// 페이지 메타 설정
+useHead({
+  meta: [
+    {
+      name: "og:title",
+      content: "오징어게임 MBTI 테스트",
+    },
+    {
+      name: "og:description",
+      content: "나는 오징어게임에서 어떤 인물일까?",
+    },
+    {
+      name: "og:image",
+      content: `https://squid-games.site/image/meta/metaimg_main.png`,
+    },
+    {
+      name: "twitter:title",
+      content: "오징어게임 MBTI 테스트",
+    },
+    {
+      name: "twitter:description",
+      content: "나는 오징어게임에서 어떤 인물일까?",
+    },
+    {
+      name: "twitter:image",
+      content: `https://squid-games.site/image/meta/metaimg_main.png`,
+    },
+  ],
+})
 
+// 반응형 데이터
+const homeLink = ref('')
+
+// 생명주기
+onMounted(() => {
+  // clearTimer() - 상태 관리 구현 시 추가
+  homeLink.value = `${window.location.origin}/ko`
+})
+
+// 메서드들
+const urlLink = async () => {
+  try {
+    await navigator.clipboard.writeText(homeLink.value)
+    alert('복사되었습니다.')
+  } catch (err) {
+    const textArea = document.createElement('textarea')
+    textArea.value = homeLink.value
+    document.body.appendChild(textArea)
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
+    alert('복사되었습니다.')
+  }
+}
+
+const kakaoLink = () => {
+  if (process.client && window.Kakao) {
+    window.Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '저랑 게임 하나 하시겠습니까?',
+        description: '나는 오징어 게임에서 어떤 캐릭터일까?',
+        imageUrl: `https://squid-games.site/image/meta/metaimg_main.png`,
+        imageWidth: 800,
+        imageHeight: 400,
+        link: {
+          mobileWebUrl: homeLink.value,
+          webUrl: homeLink.value,
+        },
+      },
+      buttons: [
         {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_main.png`,
+          title: '테스트 하기',
+          link: {
+            mobileWebUrl: homeLink.value,
+            webUrl: homeLink.value,
+          },
         },
       ],
-    };
-  },
-  mounted() {
-    this.$store.commit("clearTimer");
-    this.homeLink = `${window.location.origin}/ko`;
-  },
-  methods: {
-    urlLink() {
-      this.$copyText(this.homeLink).then(function () {
-        alert("복사되었습니다.");
-      });
-    },
-    kakaoLink() {
-      if (process.browser) {
-        window.Kakao.Link.sendDefault({
-          objectType: "feed",
-          content: {
-            title: "저랑 게임 하나 하시겠습니까?",
-            description: "나는 오징어 게임에서 어떤 캐릭터일까?",
-            imageUrl: `${process.env.baseURL}/image/meta/metaimg_main.png`,
-            imageWidth: 800,
-            imageHeight: 400,
-            link: {
-              mobileWebUrl: this.homeLink,
-              webUrl: this.homeLink,
-            },
-          },
-          buttons: [
-            {
-              title: "테스트 하기",
-              link: {
-                mobileWebUrl: this.homeLink,
-                webUrl: this.homeLink,
-              },
-            },
-          ],
-        });
-      }
-    },
-    facebookLink() {
-      if (process.browser) {
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${this.homeLink}&src=sdkpreparse`,
-          "pop01",
-          "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
-        );
-      }
-    },
-    twitterLink() {
-      const text = "저랑 게임 하나 하시겠습니까?";
-      if (process.browser) {
-        window.open(
-          `https://twitter.com/intent/tweet?text=${text}&url=${this.homeLink}&hashtags=오징어게임,심리테스트`,
-          "pop02",
-          "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
-        );
-      }
-    },
-  },
-};
+    })
+  }
+}
+
+const facebookLink = () => {
+  if (process.client) {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${homeLink.value}&src=sdkpreparse`,
+      'pop01',
+      'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
+    )
+  }
+}
+
+const twitterLink = () => {
+  const text = '저랑 게임 하나 하시겠습니까?'
+  if (process.client) {
+    window.open(
+      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=오징어게임,심리테스트`,
+      'pop02',
+      'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
+    )
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

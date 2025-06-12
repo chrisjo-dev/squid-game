@@ -117,9 +117,6 @@
   cursor: pointer;
   display: inline-block;
 }
-.typeGood {
-  margin-right: 40px;
-}
 .footerBTN {
   display: flex;
   flex-direction: column;

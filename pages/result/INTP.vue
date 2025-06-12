@@ -7,6 +7,7 @@
         alt="진행요원 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">INTP</p>
       <p class="charName">Soldier (ㅁ)</p>
       <p class="mbtiSummary">
         Quick to understand<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

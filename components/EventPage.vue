@@ -38,84 +38,107 @@
   </section>
 </template>
 
-<script>
-import TimeOut from "./TimeOut.vue";
+<script setup>
+import TimeOut from "./TimeOut.vue"
 
-export default {
-  components: {
-    TimeOut,
-  },
-  props: {
-    lang_en: Boolean,
-  },
-  data() {
-    return {
-      questionShow: true,
-      imgShow: false,
-      textOut: false,
-      halfTime: true,
-      timerStop: false,
-      option1: false,
-      option2: false,
-      option_num: "",
-    };
-  },
-  created() {
-    setTimeout(() => {
-      this.playSound();
-      this.imgShow = true;
-    }, 500);
-    setTimeout(() => {
-      this.imgShow = false;
-      this.textOut = true;
-    }, 2300);
-    setTimeout(() => {
-      this.questionShow = false;
-    }, 3000);
-    setTimeout(() => {
-      if (!this.option1 && !this.option2) {
-        this.option_num = Math.round(Math.random());
-        console.log(this.option_num);
-        this.clickBtn(this.option_num);
+// Props 정의
+const props = defineProps({
+  lang_en: {
+    type: Boolean,
+    default: false
+  }
+})
+
+// Emits 정의
+const emit = defineEmits(['event_close'])
+
+// 반응형 데이터
+const questionShow = ref(true)
+const imgShow = ref(false)
+const textOut = ref(false)
+const halfTime = ref(true)
+const timerStop = ref(false)
+const option1 = ref(false)
+const option2 = ref(false)
+const option_num = ref("")
+
+// 생명주기
+onMounted(() => {
+  setTimeout(() => {
+    playSound()
+    imgShow.value = true
+  }, 500)
+  
+  setTimeout(() => {
+    imgShow.value = false
+    textOut.value = true
+  }, 2300)
+  
+  setTimeout(() => {
+    questionShow.value = false
+  }, 3000)
+  
+  setTimeout(() => {
+    if (!option1.value && !option2.value) {
+      option_num.value = Math.round(Math.random())
+      console.log(option_num.value)
+      clickBtn(option_num.value)
+    }
+  }, 11000)
+})
+
+// 메서드들
+const option1Click = () => {
+  timerStop.value = true
+  option1.value = true
+  setTimeout(() => {
+    emit("event_close")
+  }, 800)
+}
+
+const option2Click = () => {
+  timerStop.value = true
+  option2.value = true
+  setTimeout(() => {
+    emit("event_close")
+  }, 800)
+}
+
+const clickBtn = (num) => {
+  if (num === 0) option1Click()
+  else option2Click()
+}
+
+const delay = (t, v) => {
+  return new Promise(function (resolve) {
+    setTimeout(resolve.bind(null, v), t)
+  })
+}
+
+const playSound = () => {
+  try {
+    const audio = new Audio("/gunSound.mp3")
+    audio.volume = 0.3
+    
+    // 오디오 로드 에러 처리
+    audio.addEventListener('error', (e) => {
+      console.warn('Audio file could not be loaded:', e)
+    })
+    
+    // 오디오 재생 에러 처리
+    audio.play().catch((error) => {
+      console.warn('Audio playback failed:', error)
+    })
+    
+    delay(200).then(() => {
+      if (process.client && window.navigator && window.navigator.vibrate) {
+        navigator.vibrate(800)
       }
-    }, 11000);
-  },
-  methods: {
-    option1Click() {
-      this.timerStop = true;
-      this.option1 = true;
-      setTimeout(() => {
-        this.$emit("event_close");
-      }, 800);
-    },
-    option2Click() {
-      this.timerStop = true;
-      this.option2 = true;
-      setTimeout(() => {
-        this.$emit("event_close");
-      }, 800);
-    },
-    clickBtn(num) {
-      if (num === 0) this.option1Click();
-      else this.option2Click();
-    },
-    delay(t, v) {
-      return new Promise(function (resolve) {
-        setTimeout(resolve.bind(null, v), t);
-      });
-    },
-    playSound() {
-      const audio = new Audio("/gunSound.mp3");
-      audio.volume = 0.3;
-      audio.play();
-      this.delay(200).then(() => {
-        if (window.navigator && window.navigator.vibrate) {
-          navigator.vibrate(800);
-        }
-      });
-    },
-  },
-};
+    })
+  } catch (error) {
+    console.warn('Audio initialization failed:', error)
+  }
+}
 </script>
 
 <style scoped>

@@ -43,54 +43,68 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: "MainPage",
-  middleware({ req, redirect }) {
-    const locale = req?.headers["accept-language"]?.substring(0, 2);
-    if (locale === "ko") {
-      return redirect("/ko");
+<script setup>
+// Nuxt 3 미들웨어
+definePageMeta({
+  middleware: (to, from) => {
+    if (process.server) {
+      const acceptLanguage = useRequestHeaders()['accept-language']
+      const locale = acceptLanguage?.substring(0, 2)
+      if (locale === 'ko') {
+        return navigateTo('/ko')
+      }
     }
-  },
-  props: {},
-  data() {
-    return {
-      homeLink: "",
-      data: null,
-    };
-  },
-  mounted() {
-    this.$store.commit("clearTimer");
-    this.homeLink = window.location.origin;
-  },
-  methods: {
-    urlLink() {
-      this.$copyText(this.homeLink).then(function () {
-        alert("Copied Successfully");
-      });
-    },
-    facebookLink() {
-      if (process.browser) {
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${this.homeLink}&src=sdkpreparse`,
-          "pop01",
-          "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
-        );
-      }
-    },
-    twitterLink() {
-      const text = "Would you like to play a game?";
-      const hashtags = "SquidGame,SquidGameTest";
-      if (process.browser) {
-        window.open(
-          `https://twitter.com/intent/tweet?text=${text}&url=${this.homeLink}&hashtags=${hashtags}`,
-          "pop02",
-          "top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no"
-        );
-      }
-    },
-  },
-};
+  }
+})
+
+// 반응형 데이터
+const homeLink = ref('')
+
+// 생명주기
+onMounted(() => {
+  // 타이머 클리어 (상태 관리 필요시 추후 구현)
+  // clearTimer()
+  homeLink.value = window.location.origin
+})
+
+// 메서드들
+const urlLink = async () => {
+  try {
+    await navigator.clipboard.writeText(homeLink.value)
+    alert('Copied Successfully')
+  } catch (err) {
+    // 폴백: 클립보드 API가 지원되지 않을 경우
+    const textArea = document.createElement('textarea')
+    textArea.value = homeLink.value
+    document.body.appendChild(textArea)
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
+    alert('Copied Successfully')
+  }
+}
+
+const facebookLink = () => {
+  if (process.client) {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${homeLink.value}&src=sdkpreparse`,
+      'pop01',
+      'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
+    )
+  }
+}
+
+const twitterLink = () => {
+  const text = 'Would you like to play a game?'
+  const hashtags = 'SquidGame,SquidGameTest'
+  if (process.client) {
+    window.open(
+      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=${hashtags}`,
+      'pop02',
+      'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
+    )
+  }
+}
 </script>
 
 <style scoped>

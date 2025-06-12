@@ -7,7 +7,8 @@
         alt="성기훈어머니 이미지"
         class="mbtiIMG ISFJ"
       />
-      <p class="charName">Player 456’ mother</p>
+      <p class="mbti">ISFJ</p>
+      <p class="charName">Player 456' mother</p>
       <p class="mbtiSummary">
         Responsible and dedicated.<br />
         A patient person.
@@ -16,7 +17,7 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 456’ mother</p>
+          <p class="mbtiInfo_summary">Player 456' mother</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -169,12 +170,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },
@@ -187,11 +188,11 @@ export default {
         "Gentle and calm.",
         "Has a delicate personality and is always careful in every manner.",
         "Hates wasting money, time and emotion.",
-        "Doesn’t like hurting other people’s feeling.",
-        "Good at listening to other people’s story with open mind but doesn’t talk of one’s own worries. ",
+        "Doesn't like hurting other people's feeling.",
+        "Good at listening to other people's story with open mind but doesn't talk of one's own worries. ",
       ],
       mbtiInfo_text: [
-        " As player 456’s mother, she endures and does not scold her son for not taking care of his daughter.",
+        " As player 456's mother, she endures and does not scold her son for not taking care of his daughter.",
         "Even though it is not easy make a living, she works hard with great responsibility.",
         "Even though she is not satisfied with her son, she deals with her son calmly without hurting his feelings. ",
       ],
@@ -200,12 +201,12 @@ export default {
   },
   head() {
     return {
-      title: "You are Player 456’ mother in Squid game",
+      title: "You are Player 456' mother in Squid game",
       meta: [
         {
           hid: "title",
           name: "og:title",
-          content: "You are Player 456’ mother in Squid game",
+          content: "You are Player 456' mother in Squid game",
         },
         {
           hid: "description",
@@ -221,7 +222,7 @@ export default {
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: "You are Player 456’ mother in Squid game",
+          content: "You are Player 456' mother in Squid game",
         },
         {
           hid: "twitter:description",

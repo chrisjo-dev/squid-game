@@ -10,15 +10,22 @@
   ></div>
 </template>
 
-<script>
-export default {
-  name: "TimeOut",
-  props: {
-    timerStop: Boolean,
-    halfTime: Boolean,
-    eng: Boolean,
+<script setup>
+// Props 정의
+defineProps({
+  timerStop: {
+    type: Boolean,
+    default: false
   },
-};
+  halfTime: {
+    type: Boolean,
+    default: false
+  },
+  eng: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <style scoped>

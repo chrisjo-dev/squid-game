@@ -5,7 +5,7 @@
       <figure class="charImgContainer">
         <img
           class="charImg"
-          src="~/assets/image/final/장덕수_ESTP_200.png"
+          :src="jangDukSuImg"
           alt="장덕수 이미지"
           @click="imgClick()"
         />
@@ -13,14 +13,13 @@
           <img
             v-if="bloodImg"
             class="bloodImg"
-            :src="
-              require(`~/assets/image/easterEgg/장덕수_피눈물${imgNum}.png`)
-            "
+            :src="getBloodImage(imgNum)"
             alt="장덕수 피눈물 이미지"
             @click="easterImgClick()"
           />
         </figure>
       </figure>
+      <p class="mbti">ESTP</p>
       <p class="charName">Player 101</p>
       <p class="mbtiSummary">
         Interested in various fields.<br />
@@ -30,7 +29,7 @@
     <div v-else class="testMBTI">
       <figure class="easterEggContainer">
         <img
-          src="~assets/image/easterEgg/easterSkull.png"
+          :src="easterSkullImg"
           alt="이스터에그 해골"
           class="easterSkull"
         />
@@ -38,7 +37,7 @@
           <img
             v-if="easterHell"
             class="easterHell"
-            src="~/assets/image/easterEgg/easterHell_eng.png"
+            :src="easterHellEngImg"
             alt="지옥"
           />
         </figure>
@@ -84,7 +83,7 @@
           <section class="typeGood" @click="typeLink('INFJ')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/오일남_INFJ_100.png"
+              :src="ohIlNamImg"
               alt="ESTP와 잘맞는 유형"
             />
             <p class="typeCharName">Player 001</p>
@@ -96,7 +95,7 @@
           <section class="typeBad" @click="typeLink('INFP')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/강새벽_INFP_100.png"
+              :src="kangSaeByukImg"
               alt="ESTP와 안맞는 유형"
             />
             <p class="typeCharName">Player 067</p>
@@ -183,162 +182,173 @@
     >
     </Final_Modal>
     <div class="hideImg">
-      <img src="~/assets/image/easterEgg/장덕수_피눈물1.png" />
-      <img src="~/assets/image/easterEgg/장덕수_피눈물2.png" />
-      <img src="~/assets/image/easterEgg/장덕수_피눈물3.png" />
-      <img src="~/assets/image/easterEgg/easterHell_eng.png" />
-      <img src="~/assets/image/easterEgg/easterSkull.png" />
+      <img :src="jangDukSuBlood1Img" />
+      <img :src="jangDukSuBlood2Img" />
+      <img :src="jangDukSuBlood3Img" />
+      <img :src="easterHellEngImg" />
+      <img :src="easterSkullImg" />
     </div>
   </div>
 </template>
 
-<script>
-import Final_Modal from "./Final_Modal.vue";
-import LinkShare from "~/components/LinkShare.vue";
+<script setup>
+import Final_Modal from "./Final_Modal.vue"
+import LinkShare from "~/components/LinkShare.vue"
 
-export default {
-  name: "FinalESTP",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
-  data() {
-    return {
-      showModal: false,
-      resultLinkResult: () => {
-        if (process.browser) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.browser) {
-          return window.location.origin;
-        }
-      },
-      homeLink: null,
-      resultLink: null,
-      blurClass: true,
-      mbti: "ESTP",
-      mbtiInfo2_text: [
-        "Enjoys life, generous, relaxed, and has an open personality without prejudice.",
-        "Has a personality that is good at dealing with situations where conflict or tension arises.",
-        "Interested in various fields and want to know more.",
-        "Very realistic, so it's frustrating for people who are emotional or indecisive.",
-        "Like to refrain from talking as much as possible.",
-        "Enjoy thrills, fearless, and tend to engage in risky behavior frequently.",
-      ],
-      mbtiInfo_text: [
-        "He is a gangster who spontaneously commits brutal violence for his own benefit.",
-        "He shows excellent adaptability even in the squid game due to his long life as a gangster.",
-        "In the squid game, he has superior situational judgment and finesse than anyone else.",
-        "Just as he betrays his teammates when he decides that there is no benefit, he easily turns around when it deviates from realistic standards. Even when he betrayed player 212, he showed that he prioritized his own survival.",
-      ],
-      firstTest: null,
-      bloodImg: false,
-      easterSkull: false,
-      easterHell: false,
-      imgNum: 1,
-      imgDelay: true,
-    };
-  },
-  head() {
-    return {
-      title: "You are Player 101 in Squid game",
-      meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Player 101 in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESTP.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Player 101 in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
+// 이미지 임포트
+import jangDukSuImg from '~/assets/image/final/장덕수_ESTP_200.png'
+import jangDukSuBlood1Img from '~/assets/image/easterEgg/장덕수_피눈물1.png'
+import jangDukSuBlood2Img from '~/assets/image/easterEgg/장덕수_피눈물2.png'
+import jangDukSuBlood3Img from '~/assets/image/easterEgg/장덕수_피눈물3.png'
+import easterHellEngImg from '~/assets/image/easterEgg/easterHell_eng.png'
+import easterSkullImg from '~/assets/image/easterEgg/easterSkull.png'
+import ohIlNamImg from '~/assets/image/final/오일남_INFJ_100.png'
+import kangSaeByukImg from '~/assets/image/final/강새벽_INFP_100.png'
 
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESTP.png`,
-        },
-      ],
-    };
-  },
-  watch: {
-    imgNum() {
+// 페이지 메타 설정
+useHead({
+  title: "You are Player 101 ESTP in Squid Game",
+  meta: [
+    {
+      hid: "title",
+      name: "og:title",
+      content: "You are Player 101 ESTP in Squid Game",
+    },
+    {
+      hid: "description",
+      name: "og:description",
+      content: "What if I were the main character in Squid Game?",
+    },
+    {
+      hid: "image",
+      name: "og:image",
+      content: `/image/meta/metaimg_ESTP.png`,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: "You are Player 101 ESTP in Squid Game",
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: "What if I were the main character in Squid Game?",
+    },
+    {
+      hid: "twitter:image",
+      name: "twitter:image",
+      content: `/image/meta/metaimg_ESTP.png`,
+    },
+  ],
+})
+
+// 반응형 데이터
+const route = useRoute()
+const router = useRouter()
+
+const showModal = ref(false)
+const blurClass = ref(true)
+const mbti = ref("ESTP")
+const firstTest = ref(null)
+const bloodImg = ref(false)
+const easterSkull = ref(false)
+const easterHell = ref(false)
+const imgNum = ref(1)
+const imgDelay = ref(true)
+
+const resultLink = ref('')
+const homeLink = ref('')
+
+const mbtiInfo2_text = ref([
+  "Enjoy life, generous, relaxed and open-minded without prejudice.",
+  "Good at defusing situations where conflict or tension arises.",
+  "Interested in various fields and want to know.",
+  "Very realistic, so frustrated with emotional or indecisive people.",
+  "Want to refrain from speaking if possible.",
+  "Enjoy thrills, are fearless, and tend to engage in risky behavior frequently.",
+])
+
+const mbtiInfo_text = ref([
+  "A gangster who impulsively commits cruel violence for his own benefit.",
+  "Having lived in a group for a long time, he shows excellent adaptability even within the squid game.",
+  "He has better situational judgment and cunning than anyone else.",
+  "Just as he betrays when he judges that his team members are not profitable, he easily turns around when he deviates from realistic standards.",
+  "Even when betraying Han Mi-nyeo, he showed a tendency to prioritize his own survival.",
+])
+
+// Watch
+watch(imgNum, () => {
+  setTimeout(() => {
+    imgDelay.value = true
+  }, 1000)
+})
+
+// 생명주기
+onMounted(() => {
+  if (route.query.firstTest) {
+    firstTest.value = route.query.firstTest
+    blurClass.value = false
+  }
+  
+  if (process.client) {
+    resultLink.value = window.location.href
+    homeLink.value = window.location.origin
+  }
+})
+
+// 메서드들
+const getBloodImage = (num) => {
+  const bloodImages = [null, jangDukSuBlood1Img, jangDukSuBlood2Img, jangDukSuBlood3Img]
+  return bloodImages[num] || jangDukSuBlood1Img
+}
+
+const showResult = () => {
+  showModal.value = !showModal.value
+}
+
+const closeModal = (show) => {
+  showModal.value = show
+}
+
+const typeLink = (type) => {
+  navigateTo(`/result/${type}?firstTest=true`)
+}
+
+const testRestart = () => {
+  navigateTo('/')
+}
+
+const returnResult = () => {
+  router.go(-1)
+}
+
+const blurResult = () => {
+  blurClass.value = false
+}
+
+const imgClick = () => {
+  bloodImg.value = true
+}
+
+const easterImgClick = () => {
+  if (imgDelay.value && imgNum.value < 3) {
+    imgNum.value++
+    imgDelay.value = false
+  }
+  if (imgNum.value <= 3) {
+    setTimeout(() => {
+      easterSkull.value = true
       setTimeout(() => {
-        this.imgDelay = true;
-      }, 1000);
-    },
-  },
-  created() {
-    if (this.$route.query.firstTest) {
-      this.firstTest = this.$route.query.firstTest;
-      this.blurClass = false;
-    }
-    this.resultLink = this.resultLinkResult();
-    this.homeLink = this.homeLinkResult();
-  },
-  methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
-    imgClick() {
-      this.bloodImg = true;
-    },
-    easterImgClick() {
-      if (this.imgDelay && this.imgNum < 3) {
-        this.imgNum++;
-        this.imgDelay = false;
-      }
-      if (this.imgNum <= 3) {
-        setTimeout(() => {
-          this.easterSkull = true;
-          setTimeout(() => {
-            this.easterHell = true;
-          }, 2000);
-        }, 5000);
-      }
-    },
-  },
-};
+        easterHell.value = true
+      }, 2000)
+    }, 5000)
+  }
+}
 </script>
 
 <style scoped>
 @import "~/assets/css/Final_MBTI_EN.css";
+
 .hideImg img {
   width: 0;
   height: 0;

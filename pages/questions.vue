@@ -1,10 +1,10 @@
 <template>
   <div>
     <TestLoading v-if="test_done" class="container" :lang_en="lang_en" />
-    <EventPage
-      v-if="event_show"
+    <EventPage 
+      v-if="event_show" 
       :lang_en="lang_en"
-      @event_close="event_close"
+      @event_close="event_close" 
     />
     <ul
       v-for="question in question_list.slice().reverse()"
@@ -94,14 +94,12 @@
                   />
                 </svg>
               </div>
-              <img
-                :src="require(`~/assets/image/${question.id}_question.png`)"
-              />
+              <img :src="getQuestionImage(question.id)" alt="Question Image" />
               <p class="QuestionText" v-html="question.desc"></p>
             </main>
 
             <div class="option_box">
-              <TimeOut :timer-stop="timerStop" :eng="true"></TimeOut>
+              <TimeOut :timer-stop="timerStop" />
               <div class="optionBtn">
                 <button
                   id="option1"
@@ -128,139 +126,170 @@
     </ul>
   </div>
 </template>
-<script>
-import TimeOut from "~/components/TimeOut.vue";
-import EventPage from "~/components/EventPage.vue";
-import questionList from "~/assets/questions_en.json";
+<script setup>
+import questionList from "~/assets/questions_en.json"
+import TestLoading from "~/components/TestLoading.vue"
+import EventPage from "~/components/EventPage.vue"
+import TimeOut from "~/components/TimeOut.vue"
 
-export default {
-  name: "QuestionsPage",
-  components: {
-    TimeOut,
-    EventPage,
-  },
-  transition: "fade",
-  data() {
-    return {
-      counter_list: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      count: 0,
-      // eslint-disable-next-line no-new-object
-      choice: new Object({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, P: 0, J: 0 }),
-      mbti: "",
-      option_0: false,
-      option_1: false,
-      timerStop: false,
-      time_out_worker: setTimeout(() => {}),
-      question_list: [],
-      test_done: false,
-      timer_seconds: 20000,
-      event_show: false,
-      lang_en: true,
-    };
-  },
-  watch: {
-    count(val) {
-      const _this = this;
-      if (val === 8) {
-        this.event_show = true;
-        this.timerStop = true;
+// 이미지 임포트
+import question0Img from '~/assets/image/0_question.png'
+import question1Img from '~/assets/image/1_question.png'
+import question2Img from '~/assets/image/2_question.png'
+import question3Img from '~/assets/image/3_question.png'
+import question4Img from '~/assets/image/4_question.png'
+import question5Img from '~/assets/image/5_question.png'
+import question6Img from '~/assets/image/6_question.png'
+import question7Img from '~/assets/image/7_question.png'
+import question8Img from '~/assets/image/8_question.png'
+import question9Img from '~/assets/image/9_question.png'
+import question10Img from '~/assets/image/10_question.png'
+import question11Img from '~/assets/image/11_question.png'
+import question12Img from '~/assets/image/12_question.png'
+import question13Img from '~/assets/image/13_question.png'
+
+// 페이지 전환 설정
+definePageMeta({
+  pageTransition: { name: 'fade', mode: 'out-in' }
+})
+
+// 반응형 데이터
+const counter_list = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+const count = ref(0)
+const choice = ref({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, P: 0, J: 0 })
+const mbti = ref("")
+const option_0 = ref(false)
+const option_1 = ref(false)
+const timerStop = ref(false)
+const time_out_worker = ref(null)
+const question_list = ref([])
+const test_done = ref(false)
+const timer_seconds = ref(15000)
+const event_show = ref(false)
+const lang_en = ref(true)
+
+// Watch
+watch(count, (val) => {
+  if (val === 8) {
+    event_show.value = true
+    timerStop.value = true
+  }
+  if (val >= 14) {
+    test_done.value = true
+    setTimeout(() => {
+      getResult(choice.value)
+    }, 2500)
+    return
+  }
+
+  time_out_worker.value = setTimeout(() => {
+    if (!option_0.value && !option_1.value && !timerStop.value) {
+      timeOutRandomChoice()
+    }
+  }, timer_seconds.value)
+})
+
+// 생명주기
+onMounted(() => {
+  question_list.value = questionList
+  
+  time_out_worker.value = setTimeout(() => {
+    if (!option_0.value && !option_1.value && !timerStop.value) {
+      timeOutRandomChoice()
+    }
+  }, timer_seconds.value)
+})
+
+onUnmounted(() => {
+  if (time_out_worker.value) {
+    clearTimeout(time_out_worker.value)
+  }
+})
+
+// 메서드들
+const getCounterColor = (num) => {
+  if (num) return "#E73E7E"
+  return "#333333"
+}
+
+const timeOutRandomChoice = (option_num) => {
+  option_num = Math.round(Math.random())
+  toUserChoice(option_num)
+}
+
+const toUserChoice = (option_num) => {
+  if (count.value >= 14) return 0
+  if (timerStop.value) return 0
+  
+  if (option_num === 0) option_0.value = true
+  else if (option_num === 1) option_1.value = true
+
+  const mbti_value = question_list.value[count.value].option_mbti[option_num]
+  choice.value[mbti_value] += 1
+
+  clearTimeout(time_out_worker.value)
+
+  clickAnimation().then(() => {
+    if (count.value < 14) count.value += 1
+    timerStop.value = false
+    option_0.value = false
+    option_1.value = false
+  })
+}
+
+const clickAnimation = () => {
+  return new Promise((resolve) => {
+    timerStop.value = true
+    setTimeout(() => {
+      counter_list.value.unshift(1)
+      counter_list.value.pop()
+      resolve()
+    }, 800)
+  })
+}
+
+const getResult = (choice) => {
+  for (const i in choice) {
+    if (i === "E") {
+      if (choice[i] >= 3) {
+        mbti.value += i
       }
-      if (val >= 14) {
-        this.test_done = true;
-        setTimeout(function () {
-          _this.getResult(_this.choice);
-        }, 2500);
+    } else if (i === "I") {
+      if (choice[i] >= 3) {
+        mbti.value += i
       }
+    } else if (choice[i] >= 2) {
+      mbti.value += i
+    }
+  }
+  
+  navigateTo(`/result/${mbti.value}`)
+  clearTimeout(time_out_worker.value)
+  console.log(mbti.value)
+}
 
-      this.time_out_worker = setTimeout(function () {
-        if (!_this.option_0 && !_this.option_1 && !_this.timerStop) {
-          _this.timeOutRandomChoice();
-        }
-      }, _this.timer_seconds);
-    },
-  },
-  mounted() {
-    this.question_list = questionList;
-    const _this = this;
-    this.time_out_worker = setTimeout(function () {
-      if (!_this.option_0 && !_this.option_1 && !_this.timerStop) {
-        _this.timeOutRandomChoice();
-      }
-    }, _this.timer_seconds);
-    this.$store.commit("setTimer", this.time_out_worker);
-  },
-  methods: {
-    getCounterColor(num) {
-      if (num) return "#E73E7E";
-      return "#333333";
-    },
-    timeOutRandomChoice(option_num) {
-      option_num = Math.round(Math.random());
-      this.toUserChoice(option_num);
-    },
-    toUserChoice(option_num) {
-      if (this.count >= 14) return 0;
-      if (this.timerStop) return 0;
-      if (option_num === 0) this.option_0 = true;
-      else if (option_num === 1) this.option_1 = true;
+const event_close = () => {
+  event_show.value = false
+  timerStop.value = false
+  clearTimeout(time_out_worker.value)
+  
+  time_out_worker.value = setTimeout(() => {
+    if (!option_0.value && !option_1.value && !timerStop.value) {
+      timeOutRandomChoice()
+    }
+  }, timer_seconds.value)
+}
 
-      const mbti_value = this.question_list[this.count].option_mbti[option_num];
-      this.choice[mbti_value] += 1;
-
-      clearTimeout(this.time_out_worker);
-
-      this.clickAnimation().then(() => {
-        if (this.count < 14) this.count += 1;
-        this.timerStop = false;
-        this.option_0 = false;
-        this.option_1 = false;
-      });
-    },
-    clickAnimation() {
-      return new Promise((resolve, reject) => {
-        this.timerStop = true;
-        setTimeout(() => {
-          this.counter_list.unshift(1);
-          this.counter_list.pop();
-          resolve();
-        }, 800);
-      });
-    },
-    getResult(choice) {
-      for (const i in choice) {
-        if (i === "E") {
-          if (choice[i] >= 3) {
-            this.mbti += i;
-          }
-        } else if (i === "I") {
-          if (choice[i] >= 3) {
-            this.mbti += i;
-          }
-        } else if (choice[i] >= 2) {
-          this.mbti += i;
-        }
-        this.$router.push({
-          path: `result/${this.mbti}`,
-          params: { mbti: this.mbti },
-        });
-
-        clearTimeout(this.time_out_worker);
-      }
-      console.log(this.mbti);
-    },
-    event_close() {
-      this.event_show = false;
-      this.timerStop = false;
-      clearTimeout(this.time_out_worker);
-      const _this = this;
-      this.time_out_worker = setTimeout(function () {
-        if (!_this.option_0 && !_this.option_1 && !_this.timerStop) {
-          _this.timeOutRandomChoice();
-        }
-      }, _this.timer_seconds);
-    },
-  },
-};
+// 이미지 매핑 함수 추가
+const getQuestionImage = (questionId) => {
+  const imageMap = [
+    question0Img, question1Img, question2Img, question3Img,
+    question4Img, question5Img, question6Img, question7Img,
+    question8Img, question9Img, question10Img, question11Img,
+    question12Img, question13Img
+  ]
+  return imageMap[questionId] || question0Img
+}
 </script>
 <style scoped>
 .container {

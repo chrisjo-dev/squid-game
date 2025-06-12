@@ -7,6 +7,7 @@
         alt="한미녀 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ESFP</p>
       <p class="charName">Player 212</p>
       <p class="mbtiSummary">
         Realistic and practical.<br />
@@ -169,12 +170,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

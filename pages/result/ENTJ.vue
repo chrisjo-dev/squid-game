@@ -7,6 +7,7 @@
         alt="조상우 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ENTJ</p>
       <p class="charName">Player 218</p>
       <p class="mbtiSummary">
         As a strategist, <br />takes care of practical things.<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

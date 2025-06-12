@@ -7,6 +7,7 @@
         alt="지영 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ISFP</p>
       <p class="charName">Player 240</p>
       <p class="mbtiSummary">
         Very sentimental.<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

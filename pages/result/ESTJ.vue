@@ -7,6 +7,7 @@
         alt="VIP 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">ESTJ</p>
       <p class="charName">VIPS</p>
       <p class="mbtiSummary">
         So good at planning. <br />
@@ -169,12 +170,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

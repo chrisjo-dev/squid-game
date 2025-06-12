@@ -25,23 +25,34 @@
   </div>
 </template>
 
-<script>
-export default {
-  layout: "error",
-  props: ["error"], // you can set a custom layout for the error page
-};
+<script setup>
+// Nuxt 3에서 에러 객체는 props로 전달됩니다
+const props = defineProps({
+  error: Object
+})
+
+// 페이지 메타 설정
+useHead({
+  title: 'Error - Squid Game MBTI'
+})
 </script>
 
-<style>
+<style scoped>
 .page404 {
   margin: 200px auto;
+  text-align: center;
 }
+
 .number404 {
   font-size: 150px;
+  color: #E73E7E;
+  margin: 20px 0;
 }
 
 .count_box {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 #error_btn {
@@ -55,5 +66,22 @@ export default {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
+  border: none;
+  cursor: pointer;
 }
-</style>
+
+#error_btn:hover {
+  background: #d63570;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  margin: 10px 0;
+}
+
+h1 {
+  color: #E73E7E;
+  margin: 20px 0;
+}
+</style> 

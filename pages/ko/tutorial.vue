@@ -47,55 +47,46 @@
         data-ad-unit="DAN-PhZrS026JE8pku05"
         data-ad-width="320"
         data-ad-height="100"
-      ></ins>
-      <script
-        type="text/javascript"
-        src="//t1.daumcdn.net/kas/static/ba.min.js"
-        async
-      ></script>
+              ></ins>
     </div>
     <ImgLoading />
   </div>
 </template>
-<script>
-export default {
-  name: "TutorialPage",
-  props: {
-    testStart: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  data() {
-    return {
-      clickClass: false,
-      timerStop: false,
-      autoTime: setTimeout(() => {}),
-      timer: null,
-    };
-  },
-  mounted() {
-    this.$store.commit("clearTimer");
-    this.autoClick();
-    this.$store.commit("setTimer", this.autoTime);
-  },
-  methods: {
-    click() {
-      this.clickClass = true;
-      this.timerStop = true;
-      setTimeout(() => {
-        this.$router.push({
-          path: `/ko/questions`,
-        });
-      }, 800);
-    },
-    autoClick() {
-      this.autoTime = setTimeout(() => {
-        this.click();
-      }, 15000);
-    },
-  },
-};
+<script setup>
+import ImgLoading from "~/components/ImgLoading.vue"
+
+// 반응형 데이터
+const testStart = ref(true)
+const clickClass = ref(false)
+const timerStop = ref(false)
+const autoTime = ref(null)
+
+// 생명주기
+onMounted(() => {
+  // 상태 관리가 구현되면 여기서 처리
+  autoClick()
+})
+
+onUnmounted(() => {
+  if (autoTime.value) {
+    clearTimeout(autoTime.value)
+  }
+})
+
+// 메서드들
+const click = () => {
+  clickClass.value = true
+  timerStop.value = true
+  setTimeout(() => {
+    navigateTo('/ko/questions')
+  }, 800)
+}
+
+const autoClick = () => {
+  autoTime.value = setTimeout(() => {
+    click()
+  }, 15000)
+}
 </script>
 <style scoped>
 main {

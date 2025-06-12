@@ -7,6 +7,7 @@
         alt="오일남 이미지"
         class="mbtiIMG"
       />
+      <p class="mbti">INFJ</p>
       <p class="charName">Player 001</p>
       <p class="mbtiSummary">
         Creative and insightful.<br />
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

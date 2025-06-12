@@ -7,7 +7,8 @@
         alt="황준호 이미지"
         class="mbtiIMG"
       />
-      <p class="charName">Detective Hwang</p>
+      <p class="mbti">ISTJ</p>
+      <p class="charName">Game Host</p>
       <p class="mbtiSummary">
         Do what he started to do<br />
         until the end. A perfectionist.
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },

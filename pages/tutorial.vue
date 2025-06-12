@@ -46,45 +46,43 @@
     <ImgLoading />
   </div>
 </template>
-<script>
-export default {
-  name: "TutorialPage",
-  props: {
-    testStart: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  data() {
-    return {
-      clickClass: false,
-      timerStop: false,
-      autoTime: setTimeout(() => {}),
-      timer: null,
-    };
-  },
-  mounted() {
-    this.$store.commit("clearTimer");
-    this.autoClick();
-    this.$store.commit("setTimer", this.autoTime);
-  },
-  methods: {
-    click() {
-      this.clickClass = true;
-      this.timerStop = true;
-      setTimeout(() => {
-        this.$router.push({
-          path: `questions`,
-        });
-      }, 800);
-    },
-    autoClick() {
-      this.autoTime = setTimeout(() => {
-        this.click();
-      }, 20000);
-    },
-  },
-};
+<script setup>
+import ImgLoading from "~/components/ImgLoading.vue"
+
+// 반응형 데이터
+const testStart = ref(true)
+const clickClass = ref(false)
+const timerStop = ref(false)
+const autoTime = ref(null)
+
+// 생명주기
+onMounted(() => {
+  // 상태 관리가 구현되면 여기서 처리
+  // clearTimer()
+  autoClick()
+  // setTimer(autoTime.value)
+})
+
+onUnmounted(() => {
+  if (autoTime.value) {
+    clearTimeout(autoTime.value)
+  }
+})
+
+// 메서드들
+const click = () => {
+  clickClass.value = true
+  timerStop.value = true
+  setTimeout(() => {
+    navigateTo('/questions')
+  }, 800)
+}
+
+const autoClick = () => {
+  autoTime.value = setTimeout(() => {
+    click()
+  }, 20000)
+}
 </script>
 <style scoped>
 main {

@@ -7,7 +7,8 @@
         alt="조상우맘 이미지"
         class="mbtiIMG"
       />
-      <p class="charName">Player 218’s Mother</p>
+      <p class="mbti">ESFJ</p>
+      <p class="charName">Player 218's Mother</p>
       <p class="mbtiSummary">
         Sympathetic and patient.<br />
         Conscientious person.
@@ -16,7 +17,7 @@
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 218’s Mother</p>
+          <p class="mbtiInfo_summary">Player 218's Mother</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -168,12 +169,12 @@ export default {
     return {
       showModal: false,
       resultLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.href;
         }
       },
       homeLinkResult: () => {
-        if (process.browser) {
+        if (process.client) {
           return window.location.origin;
         }
       },
@@ -201,12 +202,12 @@ export default {
   },
   head() {
     return {
-      title: "You are Player 218’s Mother in Squid game",
+      title: "You are Player 218's Mother in Squid game",
       meta: [
         {
           hid: "title",
           name: "og:title",
-          content: "You are Player 218’s Mother in Squid game",
+          content: "You are Player 218's Mother in Squid game",
         },
         {
           hid: "description",
@@ -222,7 +223,7 @@ export default {
         {
           hid: "twitter:title",
           name: "twitter:title",
-          content: "You are Player 218’s Mother in Squid game",
+          content: "You are Player 218's Mother in Squid game",
         },
         {
           hid: "twitter:description",
