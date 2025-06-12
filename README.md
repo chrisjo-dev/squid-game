@@ -1,3 +1,130 @@
+# 🦑 Squid Game Personality Test  
+![notion_header](https://user-images.githubusercontent.com/85085844/146677929-d30f3272-68a4-4afe-bb3f-288affe52c76.png)  
+
+<p align="center">  
+  <strong>🛠️ Tech Stack</strong><br />  
+  <a href="https://skillicons.dev">  
+    <img src="https://skillicons.dev/icons?i=aws,vue,nuxt,js,css,html,git,github,netlify" />  
+  </a>  
+</p>  
+
+An interactive web application inspired by the universe of the Netflix series **"Squid Game"**.<br />  
+Users answer questions modeled after key scenes from the show, and their psychological choices are analyzed to determine their MBTI personality type.<br />  
+The application supports both Korean and English to accommodate a global audience.  
+
+<br>
+
+# 🎯 Project Background  
+As a job seeker with no prior professional experience, I initiated this project to gain hands-on experience in handling real user traffic and managing the entire process from planning to deployment.<br />  
+Through this comprehensive endeavor, I successfully planned, developed, and operated the entire service, managing user traffic effectively.<br />  
+This experience laid the foundation for all my subsequent professional competencies.  
+
+In 2021, the Netflix series **"Squid Game"** gained immense popularity worldwide, spawning various content and memes.<br />  
+Inspired by this cultural phenomenon, I developed an interactive web application that allows users to experience the show's universe while exploring their personality types.  
+
+This project goes beyond simple fan content by analyzing users' psychological responses and linking them to MBTI personality types, aiming to provide both entertainment and self-understanding.  
+
+<br>
+
+# 🌐 Demo Site  
+https://squid-games.site  
+
+<br>
+
+# 🧑‍💻 Target Users  
+- Fans of the "Squid Game" series<br />  
+- Individuals interested in testing their psychological responses in high-pressure situations<br />  
+- Those curious about MBTI personality types  
+
+<br>
+
+# 🛠️ Tech Stack & Implementation Details  
+This project integrates various technologies to go beyond a simple frontend implementation and support real-world service operations.  
+
+### 🔧 Frontend  
+**Vue.js**, **Nuxt.js**, **Vuex**, **Vue Router**<br />  
+- Utilized a component-based architecture to enhance reusability and maintainability.<br />  
+- Implemented server-side rendering (SSR) to improve initial load speed and achieve SEO optimization.<br />  
+- Managed user progress and result data efficiently through centralized state management.<br />  
+- Enhanced user experience by implementing multilingual support and result page routing.  
+
+### 🎨 UI/UX & Styling  
+**CSS3**, **Custom Animation**<br />  
+- Applied responsive design to provide a consistent user experience across various devices.<br />  
+- Increased immersion by incorporating animation effects that reflect the tension of the drama.  
+
+### 🌐 Multilingual Support  
+**i18n (nuxt-i18n)**<br />  
+- Supported Korean and English using internationalization (i18n) modules, considering global user accessibility.  
+
+### 🚀 Deployment & Operations  
+**AWS**, **Netlify**, **GitHub Actions**<br />  
+- Provided fast deployment and stable service through static site hosting.<br />  
+- Built an automated build and deployment pipeline using GitHub Actions.  
+
+### 📊 Analytics & Monitoring  
+**Google Analytics**, **Sentry**<br />  
+- Derived service improvement directions by analyzing user behavior.<br />  
+- Detected and responded to issues in real-time through error monitoring.  
+
+<br>
+
+# ⚙️ Installation & Execution  
+
+### Install Dependencies  
+```
+npm install
+```  
+
+### Run Development Server (http://localhost:3000)  
+```
+npm run dev
+```  
+
+### Build for Production & Start Server  
+```
+npm run build
+npm run start
+```  
+
+### Generate Static Site  
+```
+npm run generate
+```  
+
+<br>
+
+# 📅 Development Period  
+- November 2021 ~ December 2021<br />  
+- Continuously improving based on user feedback  
+
+<br>
+
+# 📑 Planning & Design  
+- [Sprint Board](https://www.notion.so/ddusi/Sprint-Board-43ccbde594cc41c0b54a82d446ef44db)<br />  
+- [Page Details](https://github.com/ddusi/squid-game/wiki)  
+
+<br>
+
+# 👥 Team & Roles  
+- PO / Frontend & Backend Development: [Chris Jo (@chrisjo-dev)](https://github.com/chrisjo-dev) <br />  
+- Planning: Jun Seo Noh<br />  
+- Design: Seung Hee Jin<br />  
+- Frontend Development: Su Jin Kim  
+
+<br>
+
+# 📄 License  
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
 
 # 🦑 오징어게임 심리테스트
 ![notion_header](https://user-images.githubusercontent.com/85085844/146677929-d30f3272-68a4-4afe-bb3f-288affe52c76.png)
@@ -35,33 +162,37 @@ https://squid-games.site
 
 # 🛠️ 기술 스택 및 구현 상세
 이 프로젝트는 단순한 프론트엔드 구현을 넘어, 실제 서비스 운영을 위한 다양한 기술 요소를 통합하여 개발되었습니다.
-
 ### 🔧 프론트엔드
-Vue.js: 컴포넌트 기반 아키텍처를 활용하여 재사용성과 유지보수성을 높였습니다.
+**Vue.js**, **Nuxt.js**, **Vuex**, **Vue Router**
 
-Nuxt.js: 서버 사이드 렌더링(SSR)을 통해 초기 로딩 속도를 개선하고, SEO 최적화를 달성했습니다.
-
-Vuex: 상태 관리를 통해 사용자 진행 상황 및 결과 데이터를 효율적으로 관리했습니다.
-
-Vue Router: 다국어 지원 및 결과 페이지 라우팅을 구현하여 사용자 경험을 향상시켰습니다.
+- 컴포넌트 기반 아키텍처를 활용하여 재사용성과 유지보수성을 높였습니다.
+- 서버 사이드 렌더링(SSR)을 통해 초기 로딩 속도를 개선하고, SEO 최적화를 달성했습니다.
+- 상태 관리를 통해 사용자 진행 상황 및 결과 데이터를 효율적으로 관리했습니다.
+- 다국어 지원 및 결과 페이지 라우팅을 구현하여 사용자 경험을 향상시켰습니다.
 
 ### 🎨 UI/UX 및 스타일링
-CSS3: 반응형 디자인을 적용하여 다양한 디바이스에서 일관된 사용자 경험을 제공합니다.
+**CSS3**, **Custom Animation**
 
-Custom Animation: 드라마의 긴장감을 반영한 애니메이션 효과를 통해 몰입감을 높였습니다.
+- 반응형 디자인을 적용하여 다양한 디바이스에서 일관된 사용자 경험을 제공합니다.
+- 드라마의 긴장감을 반영한 애니메이션 효과를 통해 몰입감을 높였습니다.
 
 ### 🌐 다국어 지원
-i18n: 국제화(i18n) 모듈을 활용하여 한국어와 영어를 지원하며, 글로벌 사용자 접근성을 고려했습니다.
+**i18n (nuxt-i18n)**
+
+- 국제화(i18n) 모듈을 활용하여 한국어와 영어를 지원하며, 글로벌 사용자 접근성을 고려했습니다.
 
 ### 🚀 배포 및 운영
-AWS: 정적 사이트 호스팅을 통해 빠른 배포와 안정적인 서비스를 제공했습니다.
+**AWS**, **Netlify**, **GitHub Actions**
 
-CI/CD: GitHub Actions를 활용하여 자동화된 빌드 및 배포 파이프라인을 구축했습니다.
+- 정적 사이트 호스팅을 통해 빠른 배포와 안정적인 서비스를 제공했습니다.
+- GitHub Actions를 활용하여 자동화된 빌드 및 배포 파이프라인을 구축했습니다.
 
 ### 📊 분석 및 모니터링
-Google Analytics: 사용자 행동 분석을 통해 서비스 개선 방향을 도출했습니다.
+**Google Analytics**, **Sentry**
 
-Sentry: 에러 모니터링을 통해 실시간으로 문제를 감지하고 대응할 수 있었습니다.
+- 사용자 행동 분석을 통해 서비스 개선 방향을 도출했습니다.
+- 에러 모니터링을 통해 실시간으로 문제를 감지하고 대응할 수 있었습니다.
+
 
 
 # ⚙️ 설치 및 실행 방법
