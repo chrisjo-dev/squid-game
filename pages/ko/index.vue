@@ -43,7 +43,7 @@
     </section>
     <footer class="email">
       <small>Feedback</small>
-      <small>ddusi.developer@gmail.com</small>
+      <small>wonsang.dev@gmail.com</small>
     </footer>
   </main>
 </template>
