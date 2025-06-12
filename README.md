@@ -241,3 +241,14 @@ PO / 프론트엔드 & 백엔드 개발: 조원상
 이 프로젝트는 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다.
 
 
+# Screen Shots
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/29b833c7-ab02-4751-85f6-968a943ea7e8" />
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/108f0d2f-ff93-4e96-a997-514d47d00b30" />
+<br>
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/a6a46dd0-391c-4d24-ac8b-788d329f6b20" />
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/f52381b4-1b18-4247-a168-3103c226d98e" />
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/212ed011-6a0e-4059-9cdb-69f0197e5aa2" />
+
+
+
+
