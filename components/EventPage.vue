@@ -3,8 +3,8 @@
     <h2 class="ir">event 화면</h2>
     <article v-if="questionShow" class="event_cont">
       <p class="event_text" :class="{ event_textOut: textOut }">
-        {{ lang_en ? "Suddenly a gunshot" : "어둠속에서" }}<br />
-        {{ lang_en ? "was heard in the dark" : "갑자기 총소리가 들렸다." }}
+        {{ lang_en ? "A sudden sound in the dark." : "어둠 속에서..." }}<br />
+        {{ lang_en ? "" : "무언가 긴박한 일이 벌어지고 있다." }}
       </p>
       <img
         v-if="imgShow"
@@ -65,7 +65,6 @@ const option_num = ref("")
 // 생명주기
 onMounted(() => {
   setTimeout(() => {
-    playSound()
     imgShow.value = true
   }, 500)
   
@@ -81,7 +80,6 @@ onMounted(() => {
   setTimeout(() => {
     if (!option1.value && !option2.value) {
       option_num.value = Math.round(Math.random())
-      console.log(option_num.value)
       clickBtn(option_num.value)
     }
   }, 11000)
@@ -109,36 +107,6 @@ const clickBtn = (num) => {
   else option2Click()
 }
 
-const delay = (t, v) => {
-  return new Promise(function (resolve) {
-    setTimeout(resolve.bind(null, v), t)
-  })
-}
-
-const playSound = () => {
-  try {
-    const audio = new Audio("/gunSound.mp3")
-    audio.volume = 0.3
-    
-    // 오디오 로드 에러 처리
-    audio.addEventListener('error', (e) => {
-      console.warn('Audio file could not be loaded:', e)
-    })
-    
-    // 오디오 재생 에러 처리
-    audio.play().catch((error) => {
-      console.warn('Audio playback failed:', error)
-    })
-    
-    delay(200).then(() => {
-      if (process.client && window.navigator && window.navigator.vibrate) {
-        navigator.vibrate(800)
-      }
-    })
-  } catch (error) {
-    console.warn('Audio initialization failed:', error)
-  }
-}
 </script>
 
 <style scoped>

@@ -122,7 +122,7 @@ export default {
           objectType: "feed",
           content: {
             title: "저랑 게임 하나 하시겠습니까? ",
-            description: "나는 오징어 게임에서 어떤 캐릭터일까?",
+            description: "나는 서바이벌 선택 게임에서 어떤 유형일까?",
             imageUrl: `${this.baseURL}/image/meta/metaimg_${this.mbti.toLowerCase()}.png`,
             imageWidth: 800,
             imageHeight: 400,
@@ -163,10 +163,10 @@ export default {
     },
     twitterLink(resultLink) {
       let text = "저랑 게임 한판 하실래요?";
-      let hashtags = "오징어게임,심리테스트";
+      let hashtags = "서바이벌MBTI,심리테스트";
       if (this.eng) {
-        text = "Would you like to play a game?";
-        hashtags = "SquidGame,SquidGameTest";
+        text = "What type are you in a survival game?";
+        hashtags = "SurvivalMBTI,MBTITest";
       }
       window.open(
         `https://twitter.com/intent/tweet?text=${text}&url=${resultLink}&hashtags=${hashtags}`,

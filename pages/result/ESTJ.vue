@@ -3,22 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/VIP_ESTJ_200.png"
-        alt="VIP 이미지"
+        src="~/assets/image/illust/result_ESTJ.png"
+        alt="The Iron Authority image"
         class="mbtiIMG"
       />
       <p class="mbti">ESTJ</p>
-      <p class="charName">VIPS</p>
-      <p class="mbtiSummary">
-        So good at planning. <br />
-        A businessman-type person.
-      </p>
+      <p class="charName">The Iron Authority</p>
+      <p class="mbtiSummary">Excellent planner and organizer. A natural executor.</p>
     </div>
-
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">VIPS</p>
+          <p class="mbtiInfo_summary">The Iron Authority</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -55,26 +51,20 @@
           <section class="typeGood" @click="typeLink('ISFP')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/지영_ISFP_100.png"
-              alt="ESTJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISFP.png"
+              alt="The Witness image"
             />
-            <p class="typeCharName">Player 240</p>
-            <p class="typeCharInfo">
-              Very sentimental.<br />
-              A person who is independent.
-            </p>
+            <p class="typeCharName">The Witness</p>
+            <p class="typeCharInfo">Sensitive and independent. Guided by inner feelings.</p>
           </section>
           <section class="typeBad" @click="typeLink('INFJ')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/오일남_INFJ_100.png"
-              alt="ESTJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_INFJ.png"
+              alt="The Mystic image"
             />
-            <p class="typeCharName">Player 001</p>
-            <p class="typeCharInfo">
-              Creative and insightful.<br />
-              An original character.
-            </p>
+            <p class="typeCharName">The Mystic</p>
+            <p class="typeCharInfo">Creative and insightful. A uniquely visionary person.</p>
           </section>
         </div>
       </section>
@@ -89,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -161,80 +111,45 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalESTJ",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalESTJEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ESTJ",
-      mbtiInfo2_text: [
-        "Have outstanding ability in organizing and planning tasks.",
-        "Show good decision making in an organized system.",
-        "Has the ability to lead a business and organization logically and realistically.",
-        "Carry out a task under certain rules.",
-        "Tend to nag to people around oneself.",
-        "Has an overly work-centered personality.",
-      ],
       mbtiInfo_text: [
-        "Pay massive amount of money in order to watch the Squid Game.",
-        "Have a weird personality as they enjoy watching poor and helpless people fight for their lives.",
-        "As a business man, they tend to be bossy and rule-focused.",
+        "Dominates situations with cool judgment and manages resources systematically.",
+        "Demands adherence to rules and order and tolerates no exceptions.",
+        "Delivers relentless execution to achieve goals without compromise.",
+        "Moves within concrete plans and has little tolerance for ambiguity.",
+        "A strong leader who can veer toward being overly controlling.",
+      ],
+      mbtiInfo2_text: [
+        "Excellent at organizing and planning work concretely.",
+        "Shows decisive action within a systematic and structured environment.",
+        "Values realistic, fact-based judgment.",
+        "Has a strong sense of responsibility and duty.",
+        "Respects community and organizational norms and tries to uphold them.",
+        "Can at times be inflexible or overly controlling.",
       ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are VIPS in Squid game",
+      title: "Survival Choices MBTI — The Iron Authority ESTJ",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are VIPS in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESTJ.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are VIPS in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESTJ.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Iron Authority ESTJ" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_estj.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Iron Authority ESTJ" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_estj.png` },
       ],
     };
   },
@@ -247,26 +162,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

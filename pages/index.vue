@@ -2,11 +2,11 @@
   <main class="container">
     <img class="logoImg" src="~/assets/image/logo_en.png" />
     <h2 class="subtitle">
-      What kind of person <br />
-      am I in the squid game?
+      What type are you <br />
+      in a survival game?
     </h2>
 
-    <img class="mainImg" src="~/assets/image/main.png" />
+    <img class="mainImg" src="~/assets/image/illust/main.png" />
 
     <section>
       <nav>
@@ -44,43 +44,35 @@
 </template>
 
 <script setup>
-// Nuxt 3 미들웨어
-definePageMeta({
-  middleware: (to, from) => {
-    if (process.server) {
-      const acceptLanguage = useRequestHeaders()['accept-language']
-      const locale = acceptLanguage?.substring(0, 2)
-      if (locale === 'ko') {
-        return navigateTo('/ko')
-      }
-    }
-  }
+useHead({
+  meta: [
+    { name: "og:title", content: "Survival Choices MBTI Test" },
+    { name: "og:description", content: "What type are you in a survival game?" },
+    { name: "og:image", content: `https://test.wspace.ai.kr/image/meta_eng/metaimg_main.png` },
+    { name: "twitter:title", content: "Survival Choices MBTI Test" },
+    { name: "twitter:description", content: "What type are you in a survival game?" },
+    { name: "twitter:image", content: `https://test.wspace.ai.kr/image/meta_eng/metaimg_main.png` },
+  ],
 })
 
-// 반응형 데이터
 const homeLink = ref('')
 
-// 생명주기
 onMounted(() => {
-  // 타이머 클리어 (상태 관리 필요시 추후 구현)
-  // clearTimer()
   homeLink.value = window.location.origin
 })
 
-// 메서드들
 const urlLink = async () => {
   try {
     await navigator.clipboard.writeText(homeLink.value)
-    alert('Copied Successfully')
-  } catch (err) {
-    // 폴백: 클립보드 API가 지원되지 않을 경우
-    const textArea = document.createElement('textarea')
-    textArea.value = homeLink.value
-    document.body.appendChild(textArea)
-    textArea.select()
+    alert('Copied!')
+  } catch {
+    const ta = document.createElement('textarea')
+    ta.value = homeLink.value
+    document.body.appendChild(ta)
+    ta.select()
     document.execCommand('copy')
-    document.body.removeChild(textArea)
-    alert('Copied Successfully')
+    document.body.removeChild(ta)
+    alert('Copied!')
   }
 }
 
@@ -95,11 +87,10 @@ const facebookLink = () => {
 }
 
 const twitterLink = () => {
-  const text = 'Would you like to play a game?'
-  const hashtags = 'SquidGame,SquidGameTest'
+  const text = 'What type are you in a survival game?'
   if (process.client) {
     window.open(
-      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=${hashtags}`,
+      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=SurvivalMBTI`,
       'pop02',
       'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
     )
@@ -116,20 +107,21 @@ const twitterLink = () => {
   margin-top: 20px;
   margin-bottom: 30px;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 23.68px;
+  font-size: 18px;
+  line-height: 27px;
   letter-spacing: -0.02em;
 }
 #start_btn {
   position: static;
   margin-top: 20px;
-  width: 164px;
+  width: 200px;
   height: 45px;
   background: #e73e7e;
   color: white;
   border-radius: 60px;
   font-weight: 500;
   font-size: 14px;
+  line-height: 21px;
   letter-spacing: -0.02em;
 }
 .svg-icon-angle {
@@ -151,7 +143,7 @@ const twitterLink = () => {
   display: flex;
   justify-content: space-between;
   margin: auto;
-  width: 144px;
+  width: 196px;
 }
 .email {
   margin-top: 80px;

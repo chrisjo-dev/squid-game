@@ -144,20 +144,20 @@ import EventPage from "~/components/EventPage.vue"
 import TimeOut from "~/components/TimeOut.vue"
 
 // 이미지 임포트
-import question0Img from '~/assets/image/0_question.png'
-import question1Img from '~/assets/image/1_question.png'
-import question2Img from '~/assets/image/2_question.png'
-import question3Img from '~/assets/image/3_question.png'
-import question4Img from '~/assets/image/4_question.png'
-import question5Img from '~/assets/image/5_question.png'
-import question6Img from '~/assets/image/6_question.png'
-import question7Img from '~/assets/image/7_question.png'
-import question8Img from '~/assets/image/8_question.png'
-import question9Img from '~/assets/image/9_question.png'
-import question10Img from '~/assets/image/10_question.png'
-import question11Img from '~/assets/image/11_question.png'
-import question12Img from '~/assets/image/12_question.png'
-import question13Img from '~/assets/image/13_question.png'
+import question0Img from '~/assets/image/illust/q0.png'
+import question1Img from '~/assets/image/illust/q1.png'
+import question2Img from '~/assets/image/illust/q2.png'
+import question3Img from '~/assets/image/illust/q3.png'
+import question4Img from '~/assets/image/illust/q4.png'
+import question5Img from '~/assets/image/illust/q5.png'
+import question6Img from '~/assets/image/illust/q6.png'
+import question7Img from '~/assets/image/illust/q7.png'
+import question8Img from '~/assets/image/illust/q8.png'
+import question9Img from '~/assets/image/illust/q9.png'
+import question10Img from '~/assets/image/illust/q10.png'
+import question11Img from '~/assets/image/illust/q11.png'
+import question12Img from '~/assets/image/illust/q12.png'
+import question13Img from '~/assets/image/illust/q13.png'
 
 // 페이지 전환 설정
 definePageMeta({

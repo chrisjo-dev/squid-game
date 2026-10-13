@@ -1,8 +1,8 @@
 <template>
   <main class="container">
     <img class="logoImg" src="~/assets/image/logo_ko.png" />
-    <h2 class="subtitle">나는 오징어게임에서 어떤 인물일까?</h2>
-    <img class="mainImg" src="~/assets/image/main.png" />
+    <h2 class="subtitle">나는 서바이벌 선택 게임에서 어떤 유형일까?</h2>
+    <img class="mainImg" src="~/assets/image/illust/main.png" />
     <section>
       <nav>
         <NuxtLink to="/ko/tutorial">
@@ -16,13 +16,6 @@
           </button>
         </NuxtLink>
       </nav>
-      <ins
-        class="kakao_ad_area"
-        style="display: none; margin-top: 10px"
-        data-ad-unit="DAN-PhZrS026JE8pku05"
-        data-ad-width="320"
-        data-ad-height="100"
-      ></ins>
       <article>
         <p class="share_box">공유하기</p>
         <article class="share_btn">
@@ -49,57 +42,34 @@
 </template>
 
 <script setup>
-// 페이지 메타 설정
 useHead({
   meta: [
-    {
-      name: "og:title",
-      content: "오징어게임 MBTI 테스트",
-    },
-    {
-      name: "og:description",
-      content: "나는 오징어게임에서 어떤 인물일까?",
-    },
-    {
-      name: "og:image",
-      content: `https://squid-games.site/image/meta/metaimg_main.png`,
-    },
-    {
-      name: "twitter:title",
-      content: "오징어게임 MBTI 테스트",
-    },
-    {
-      name: "twitter:description",
-      content: "나는 오징어게임에서 어떤 인물일까?",
-    },
-    {
-      name: "twitter:image",
-      content: `https://squid-games.site/image/meta/metaimg_main.png`,
-    },
+    { name: "og:title", content: "서바이벌 선택 MBTI 테스트" },
+    { name: "og:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+    { name: "og:image", content: `https://test.wspace.ai.kr/image/meta/metaimg_main.png` },
+    { name: "twitter:title", content: "서바이벌 선택 MBTI 테스트" },
+    { name: "twitter:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+    { name: "twitter:image", content: `https://test.wspace.ai.kr/image/meta/metaimg_main.png` },
   ],
 })
 
-// 반응형 데이터
 const homeLink = ref('')
 
-// 생명주기
 onMounted(() => {
-  // clearTimer() - 상태 관리 구현 시 추가
   homeLink.value = `${window.location.origin}/ko`
 })
 
-// 메서드들
 const urlLink = async () => {
   try {
     await navigator.clipboard.writeText(homeLink.value)
     alert('복사되었습니다.')
-  } catch (err) {
-    const textArea = document.createElement('textarea')
-    textArea.value = homeLink.value
-    document.body.appendChild(textArea)
-    textArea.select()
+  } catch {
+    const ta = document.createElement('textarea')
+    ta.value = homeLink.value
+    document.body.appendChild(ta)
+    ta.select()
     document.execCommand('copy')
-    document.body.removeChild(textArea)
+    document.body.removeChild(ta)
     alert('복사되었습니다.')
   }
 }
@@ -109,25 +79,14 @@ const kakaoLink = () => {
     window.Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '저랑 게임 하나 하시겠습니까?',
-        description: '나는 오징어 게임에서 어떤 캐릭터일까?',
-        imageUrl: `https://squid-games.site/image/meta/metaimg_main.png`,
+        title: '서바이벌 선택 게임에 참가하시겠습니까?',
+        description: '나는 서바이벌 선택 게임에서 어떤 유형일까?',
+        imageUrl: `https://test.wspace.ai.kr/image/meta/metaimg_main.png`,
         imageWidth: 800,
         imageHeight: 400,
-        link: {
-          mobileWebUrl: homeLink.value,
-          webUrl: homeLink.value,
-        },
+        link: { mobileWebUrl: homeLink.value, webUrl: homeLink.value },
       },
-      buttons: [
-        {
-          title: '테스트 하기',
-          link: {
-            mobileWebUrl: homeLink.value,
-            webUrl: homeLink.value,
-          },
-        },
-      ],
+      buttons: [{ title: '테스트 하기', link: { mobileWebUrl: homeLink.value, webUrl: homeLink.value } }],
     })
   }
 }
@@ -143,10 +102,10 @@ const facebookLink = () => {
 }
 
 const twitterLink = () => {
-  const text = '저랑 게임 하나 하시겠습니까?'
+  const text = '서바이벌 선택 게임에 참가하시겠습니까?'
   if (process.client) {
     window.open(
-      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=오징어게임,심리테스트`,
+      `https://twitter.com/intent/tweet?text=${text}&url=${homeLink.value}&hashtags=서바이벌MBTI,심리테스트`,
       'pop02',
       'top=10, left=10, width=460, height=600, status=no, menubar=no, toolbar=no, resizable=no'
     )
@@ -154,7 +113,6 @@ const twitterLink = () => {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .logoImg {
   height: 60px;

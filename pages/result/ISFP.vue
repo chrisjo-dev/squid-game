@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/지영_ISFP_200.png"
-        alt="지영 이미지"
+        src="~/assets/image/illust/result_ISFP.png"
+        alt="The Witness image"
         class="mbtiIMG"
       />
       <p class="mbti">ISFP</p>
-      <p class="charName">Player 240</p>
-      <p class="mbtiSummary">
-        Very sentimental.<br />
-        A person who is independent.
-      </p>
+      <p class="charName">The Witness</p>
+      <p class="mbtiSummary">Sensitive and independent. Guided by inner feelings.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 240</p>
+          <p class="mbtiInfo_summary">The Witness</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('ESTJ')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/VIP_ESTJ_100.png"
-              alt="ISFP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESTJ.png"
+              alt="The Iron Authority image"
             />
-            <p class="typeCharName">VIPS</p>
-            <p class="typeCharInfo">
-              So good at planning.<br />
-              A businessman-type person.
-            </p>
+            <p class="typeCharName">The Iron Authority</p>
+            <p class="typeCharInfo">Excellent planner and organizer. A natural executor.</p>
           </section>
           <section class="typeBad" @click="typeLink('ENTP')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/의문남_ENTP_100.png"
-              alt="ISFP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ENTP.png"
+              alt="The Provocateur image"
             />
-            <p class="typeCharName">Salesman</p>
-            <p class="typeCharInfo">
-              Full of confidence and energy.<br />
-              Innovative person.
-            </p>
+            <p class="typeCharName">The Provocateur</p>
+            <p class="typeCharInfo">Brimming with confidence and creativity. An innovator.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,81 +111,45 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalISFP",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalISFPEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ISFP",
-      mbtiInfo2_text: [
-        "Has great empathy ability and show kindness through action rather than words.",
-        "Has severe mood swings and gets annoyed easily.",
-        "Likes to spend time alone because he/she feels uncomfortable around people.",
-        "Does not express oneself until he/she gets to know someone.",
-        "Difficult to reject someone’s favor.",
-        "Has a sensitive personality and tries to solve one’s problem and worries all by oneself.",
-      ],
       mbtiInfo_text: [
-        "She is a cold character due to her sad family history. ",
-        "Before she gets to know player 067, she doesn’t open up to anyone easily. However, she is warm hearted and in the end, she sacrifices herself so that player 067 can continue the game.",
-        "After having a long talk with player 067, she finds out that player 067 is no different from herself and finally opens up her heart.",
+        "Appears cool on the surface but carries deep empathy within.",
+        "Makes quiet but resolute choices guided by personal values.",
+        "Shows trust through action rather than words.",
+        "Highly observant, quickly sensing shifts in the environment.",
+        "Seeks coexistence over competition and avoids unnecessary conflict.",
       ],
-
+      mbtiInfo2_text: [
+        "Expresses warmth through actions rather than words.",
+        "Has mood swings but a strong capacity for empathy.",
+        "Respects their own values and those of others.",
+        "Highly artistic sensibility with a keen eye for beauty.",
+        "Prefers cooperation over competition and avoids conflict.",
+        "Fully enjoys present experiences and adapts flexibly to change.",
+      ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Player 240 in Squid game",
+      title: "Survival Choices MBTI — The Witness ISFP",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Player 240 in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ISFP.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Player 240 in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ISFP.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Witness ISFP" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_isfp.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Witness ISFP" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_isfp.png` },
       ],
     };
   },
@@ -247,26 +162,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

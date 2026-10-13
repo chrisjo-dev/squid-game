@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/조상우맘_ESFJ_200.png"
-        alt="조상우맘 이미지"
+        src="~/assets/image/illust/result_ESFJ.png"
+        alt="The Devoted Guardian image"
         class="mbtiIMG"
       />
       <p class="mbti">ESFJ</p>
-      <p class="charName">Player 218's Mother</p>
-      <p class="mbtiSummary">
-        Sympathetic and patient.<br />
-        Conscientious person.
-      </p>
+      <p class="charName">The Devoted Guardian</p>
+      <p class="mbtiSummary">Conscientious and patient. A devoted helper.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 218's Mother</p>
+          <p class="mbtiInfo_summary">The Devoted Guardian</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('INTP')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/진행요원_INTP_100.png"
-              alt="ESFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_INTP.png"
+              alt="The Executor image"
             />
-            <p class="typeCharName">Soldier (ㅁ)</p>
-            <p class="typeCharInfo">
-              Quick to understand<br />
-              insightful. Idea-type person.
-            </p>
+            <p class="typeCharName">The Executor</p>
+            <p class="typeCharInfo">Quick to understand, insightful. A natural idea generator.</p>
           </section>
           <section class="typeBad" @click="typeLink('INTJ')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/주최자_INTJ_100.png"
-              alt="ESFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_INTJ.png"
+              alt="The Puppeteer image"
             />
-            <p class="typeCharName">Game Host</p>
-            <p class="typeCharInfo">
-              Creative in thinking<br />
-              and behavior.
-            </p>
+            <p class="typeCharName">The Puppeteer</p>
+            <p class="typeCharInfo">Independent and resolute in thought and action.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,82 +111,45 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalESFJ",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalESFJEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ESFJ",
-      mbtiInfo2_text: [
-        "Always smiling and full of sympathy and camaraderie",
-        "Conscientious and well organized.",
-        "Always patient and is good at helping others.",
-        "Sensitive to the indifference of others and enjoy it when others acknowledge it.",
-        "Quick-tempered, active, and well-planned.",
-        "Good at reacting when talking to people.",
-      ],
       mbtiInfo_text: [
-        "Despite the hardships of running a store, she is kind and witty and pays attention to others.",
-        "Seeing player 456 in a sad situation, she is sad and worried.",
-        "From the way she brags about his son, you can see that she likes the approval of others.",
-        "The way she believes in her son until the end shows her interest and love for her son.",
+        "Carefully monitors teammates' emotional state and extends a hand when needed.",
+        "Values shared rules and harmony, acting as a buffer in tense moments.",
+        "Keeps a bright demeanor even in hardship, providing stability to the group.",
+        "Excels at supporting others so they can perform at their best.",
+        "Cannot pass by a participant in trouble without offering help.",
       ],
-
+      mbtiInfo2_text: [
+        "Always smiling, with a lot of sympathy and fellowship.",
+        "Conscientious and well-organized.",
+        "Patient and eager to help others.",
+        "Values harmony and dislikes conflict.",
+        "Sensitive to others' emotions and works for those around them to be happy.",
+        "Performs best in stable environments with clear expectations.",
+      ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Player 218's Mother in Squid game",
+      title: "Survival Choices MBTI — The Devoted Guardian ESFJ",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Player 218's Mother in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESFJ.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Player 218's Mother in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ESFJ.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Devoted Guardian ESFJ" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_esfj.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Devoted Guardian ESFJ" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_esfj.png` },
       ],
     };
   },
@@ -248,26 +162,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

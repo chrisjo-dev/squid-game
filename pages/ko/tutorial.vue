@@ -29,7 +29,7 @@
       <p class="tutorialText">
         14개의 상황마다 <br />
         시간제한이 있습니다. <br />
-        게임에 참가하시겠습니까?
+        서바이벌 선택 게임에 참가하시겠습니까?
       </p>
     </main>
     <div class="option_box">
@@ -41,148 +41,68 @@
       >
         네
       </button>
-      <ins
-        class="kakao_ad_area"
-        style="display: none; margin-top: 10px"
-        data-ad-unit="DAN-PhZrS026JE8pku05"
-        data-ad-width="320"
-        data-ad-height="100"
-              ></ins>
     </div>
     <ImgLoading />
   </div>
 </template>
+
 <script setup>
 import ImgLoading from "~/components/ImgLoading.vue"
 
-// 반응형 데이터
 const testStart = ref(true)
 const clickClass = ref(false)
 const timerStop = ref(false)
-const autoTime = ref(null)
 
-// 생명주기
-onMounted(() => {
-  // 상태 관리가 구현되면 여기서 처리
-  autoClick()
-})
+const router = useRouter()
 
-onUnmounted(() => {
-  if (autoTime.value) {
-    clearTimeout(autoTime.value)
-  }
-})
-
-// 메서드들
 const click = () => {
   clickClass.value = true
   timerStop.value = true
   setTimeout(() => {
-    navigateTo('/ko/questions')
-  }, 800)
-}
-
-const autoClick = () => {
-  autoTime.value = setTimeout(() => {
-    click()
-  }, 15000)
+    router.push({ path: '/ko/questions' })
+  }, 500)
 }
 </script>
+
 <style scoped>
-main {
-  height: 419px;
-}
-
-main > img {
-  margin: 40px 26px 0px 26px;
-}
-
-main > .tutorialText {
-  margin-top: 32px;
-  line-height: 26.64px;
-  font-size: 18px;
-}
-
 .count_box {
   margin-top: 40px;
+  margin-bottom: 30px;
 }
-
+.tutorialText {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
 .option_box {
-  margin-top: 35px;
-  height: 151px;
-}
-
-.option1 {
-  position: static;
-  margin-top: 10px;
-  width: 300px;
-  height: 45px;
-  left: 30.34px;
-  top: 46px;
-  background-color: rgba(231, 62, 126, 0.25);
-  border: 1px solid #e73e7e;
-  border-radius: 60px;
-  color: white;
-  animation: move 0.8s ease 0.3s;
-}
-.option1Active {
-  background-color: #e73e7e;
-}
-.pause::before {
-  animation-play-state: paused !important;
-  background-color: #333 !important;
+  margin-top: 40px;
 }
 .timer {
-  position: relative;
-  width: 300px;
-  height: 16px;
-  background: #333;
-  border-radius: 60px;
-
-  margin: 0px auto;
-  align-content: center;
-  font-family: Noto Sans CJK KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 15px;
+  height: 4px;
+  background: #e73e7e;
+  animation: timer 6s linear forwards;
 }
-.timer::after {
-  content: "TIME";
-  position: relative;
-  color: #000;
-}
-.timer::before {
-  content: "";
-  position: absolute;
-  width: 300.68px;
-  background-color: white;
-  display: block;
-  height: 16px;
-  border-radius: 60px;
-  box-sizing: border-box;
-  animation: timer 15s 1;
-  animation-play-state: running;
+.timer.pause {
+  animation-play-state: paused;
 }
 @keyframes timer {
-  0% {
-    width: 100%;
-    background-color: white;
-  }
-  20% {
-    background-color: #ffbfbf;
-  }
-  40% {
-    background-color: #ff8080;
-  }
-  60% {
-    background-color: #ff4040;
-  }
-  80% {
-    background-color: red;
-  }
-  100% {
-    width: 2%;
-  }
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.option1 {
+  margin-top: 20px;
+  width: 200px;
+  height: 45px;
+  background: #e73e7e;
+  color: white;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.option1Active {
+  opacity: 0.7;
 }
 </style>

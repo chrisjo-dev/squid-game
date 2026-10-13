@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/프런트맨_ISTP_200.png"
-        alt="프런트맨 이미지"
+        src="~/assets/image/illust/result_ISTP.png"
+        alt="The Shadow image"
         class="mbtiIMG"
       />
       <p class="mbti">ISTP</p>
-      <p class="charName">Front Man</p>
-      <p class="mbtiSummary">
-        Logical and objective.<br />
-        Encyclopedia-type person.
-      </p>
+      <p class="charName">The Shadow</p>
+      <p class="mbtiSummary">Logical and objective. A practical realist.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Front Man</p>
+          <p class="mbtiInfo_summary">The Shadow</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('ESFJ')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/조상우맘_ESFJ_100.png"
-              alt="ISTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESFJ.png"
+              alt="The Devoted Guardian image"
             />
-            <p class="typeCharName">Player 218's Mother</p>
-            <p class="typeCharInfo">
-              Sympathetic and patient. <br />
-              Conscientious person.
-            </p>
+            <p class="typeCharName">The Devoted Guardian</p>
+            <p class="typeCharInfo">Conscientious and patient. A devoted helper.</p>
           </section>
           <section class="typeBad" @click="typeLink('ESFP')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/한미녀_ESFP_100.png"
-              alt="ISTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESFP.png"
+              alt="The Bold Survivor image"
             />
-            <p class="typeCharName">Player 212</p>
-            <p class="typeCharInfo">
-              Realistic and practical.<br />
-              A sociable person.
-            </p>
+            <p class="typeCharName">The Bold Survivor</p>
+            <p class="typeCharInfo">Practical and bold. Lives in the moment.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,83 +111,44 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalISTP",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalISTPEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ISTP",
-      mbtiInfo2_text: [
-        "He's quiet and doesn't speak much, so he has a cold impression at first, but when you get to know him, he's a warm person.",
-        "He observes life with restrained curiosity and is quick to grasp the situation.",
-        "Does not expose oneself more than necessary.",
-        "Need to open up her/his own feelings and thoughts and share it with others.",
-        "It takes time to get to know him/her because he/she doesn't make friends with anyone other than close friends.",
-        "Due to his/her individualistic tendency to value his/her own time and space, he/she does not share his/her emotions with others.",
-        "It is not easy for others to approach because they do not share their emotions easily.",
-      ],
       mbtiInfo_text: [
-        "As the person who overall manages the progress of the Squid Game, he observes the situation logically and objectively.",
-        "Without expressing emotions, he shows a cold impression and calmly runs the Squid Game.",
-        "His younger brother comes to look for him, but throws him away without much fuss.",
-        "He always wears a mask and stays alone and does not express his emotions.",
+        "Observes situations logically and objectively, acting only when necessary.",
+        "Few in expression and calm, but shows swift decisiveness in a crisis.",
+        "Gets on with assigned tasks quietly and without unnecessary words.",
+        "Uses restrained curiosity to read the situation and find the optimal solution.",
+        "Values time alone, thinking and judging independently.",
       ],
-
+      mbtiInfo2_text: [
+        "Appears cold at first glance — quiet and reserved — but is warm once known.",
+        "Observes life with restrained curiosity and quickly reads situations.",
+        "Practical and realistic; enjoys making things with their hands.",
+        "Has the ability to respond calmly in crisis situations.",
+        "Prioritizes efficiency over rules and dislikes inefficient procedures.",
+      ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Front Man in Squid game",
+      title: "Survival Choices MBTI — The Shadow ISTP",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Front Man in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ISTP.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Front Man in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ISTP.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Shadow ISTP" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_istp.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Shadow ISTP" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_istp.png` },
       ],
     };
   },
@@ -249,26 +161,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

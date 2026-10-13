@@ -1,86 +1,86 @@
 [
     {
         "id": 0,
-        "desc": "You are living in debt<br />due to greed<br />What will you do?",
-        "option":["It's too much... (Sigh...)", "Start planning what you can do."],
+        "desc": "You've been thrown into a survival challenge.<br />How do you handle<br />this overwhelming situation?",
+        "option":["Dive in and figure it out as you go.", "Make a plan first, then move systematically."],
         "option_mbti": ["P", "J"]
     },
     {
         "id": 1,
-        "desc": "A stranger comes <br />and talk to you. <br />\"Would you like to play a game <br />and bet 100,000 won?\"",
-        "option":["You have to go down to see it! GO!", "Who is he? Let’s just ignore him..."],
+        "desc": "A stranger approaches and<br />tries to talk to you.<br />What do you do?",
+        "option":["Engage actively and try to make an ally.", "Stay cautious and keep your distance."],
         "option_mbti": ["E", "I"]
     },
     {
         "id": 2,
-        "desc": "The first game has started. <br />If you fail, you will be shot to death. <br />\"Green Light, Red Light\"",
-        "option":["5 minutes left... let’s go forward", "Watch the others first."],
+        "desc": "The first mission begins.<br />Fail and you're eliminated.<br />How do you react?",
+        "option":["Step forward and assess the situation yourself.", "Observe others and follow their lead."],
         "option_mbti": ["E", "I"]
     },
     {
         "id": 3,
-        "desc": "You found out that your buddy,<br />whom you haven't seen in a long<br />time, is also in the squid game.<br />What do you?",
-        "option":["Long time so see", "It's been too long. Pretend we don't know"],
+        "desc": "You have some downtime<br />before the next challenge.<br />How do you spend it?",
+        "option":["Mingle with other participants.", "Find a quiet corner to think alone."],
         "option_mbti": ["E", "I"]
     },
     {
         "id": 4,
-        "desc": "A fight broke out during the<br />distribution of bread and milk.<br />How do you behave?",
-        "option":["Don't fight, let's talk it out together", "it has nothing to do with me. Just stay quiet"],
+        "desc": "A conflict breaks out<br />among participants.<br />What do you do?",
+        "option":["Step in and try to mediate.", "Stay back and observe."],
         "option_mbti": ["E", "I"]
     },
     {
         "id": 5,
-        "desc": "After the game is over,<br />the shocked participants<br />will have a vote to stop the game.<br />What is your choice?",
-        "option":["Stop this madness! We are all going to die!", "My actual life is worse. Just continue"],
+        "desc": "You must decide whether to<br />continue despite the danger.<br />What guides your decision?",
+        "option":["The concrete risks and your immediate survival odds.", "Your goals and what might be possible if you push through."],
         "option_mbti": ["S", "N"]
     },
     {
         "id": 6,
-        "desc": "You found out that the next game was<br />the Cinder Toffee (Dalgona) game.<br />Will you share this<br />with your team members?",
-        "option":["Reducing competitors comes first", "Inform our team members"],
+        "desc": "You've learned critical information<br />about the next challenge.<br />What do you do?",
+        "option":["Keep it to yourself to gain a competitive edge.", "Share it with teammates you trust."],
         "option_mbti": ["T", "F"]
     },
     {
         "id": 7,
-        "desc": "It feels like there's going to be<br />a riot during the night...<br />How do you act<br />when you might get killed?",
-        "option":["Look around and hope it will work out somehow", "Plan for survival with your team members"],
+        "desc": "You sense danger might be coming...<br />How do you handle<br />the anxiety?",
+        "option":["Wait and see — it might not happen.", "Prepare contingency plans with your team."],
         "option_mbti": ["P", "J"]
     },
     {
         "id": 8,
-        "desc": "The next game is a team fight. <br />I need a team, <br />but what do I do...",
-        "option":["Gather your team members", "Someone will pick me as their team..."],
+        "desc": "The next mission is a team event.<br />You need a team,<br />but what do you do...",
+        "option":["Take initiative and actively recruit teammates.", "Wait for someone to approach you first."],
         "option_mbti": ["E", "I"]
     },
     {
         "id": 9,
-        "desc": "While forming a tug-of-war game team,<br />you discover a cheater,<br />player 212, who has been betrayed.<br />I think it will be an advantageous game<br />for adult men... What will you do?",
-        "option":["Pick her just in case", "Still. I choose a man, Player 001"],
+        "desc": "You must choose a partner.<br />Skilled but unpredictable vs<br />reliable but unproven.",
+        "option":["Go with the skilled one — potential matters more.", "Go with the reliable one — stability comes first."],
         "option_mbti": ["P", "J"]
     },
     {
         "id": 10,
-        "desc": "The next game is marble.<br />In a pair of two, at least<br />one of the two will be eliminated.<br />You teammate forgot what he said<br />'What did I say...'",
-        "option":["Just take it", "I can never take it"],
+        "desc": "In a head-to-head elimination,<br />your opponent is someone you've bonded with.<br />How do you play?",
+        "option":["Set emotions aside and compete to win.", "You can't bring yourself to go all out against them."],
         "option_mbti": ["T", "F"]
     },
     {
         "id": 11,
-        "desc": "In the middle of the stepping stone<br />game, at the last stepping stone,<br />the player in front hesitates and can't<br />go forward. Time is running out...",
-        "option":["Running out of time. Just push him!", "Just give him some more time"],
+        "desc": "At a crucial moment,<br />the person in front hesitates.<br />Time is almost up...",
+        "option":["Calmly move ahead on your own.", "Give them a little more time."],
         "option_mbti": ["T", "F"]
     },
     {
         "id": 12,
-        "desc": "Only two players are left.<br />Tomorrow is<br /the last game...",
-        "option":["Winning comes first. Let's go to sleep", "Imagine what tomorrow game might be."],
+        "desc": "The night before the final challenge.<br />Tomorrow, everything ends.<br />What are you doing?",
+        "option":["Resting up to be at your best tomorrow.", "Analyzing what the final challenge might be."],
         "option_mbti": ["S", "N"]
     },
     {
         "id": 13,
-        "desc": "You are going to see your daughter for<br />the first time after winning the game.<br />What do you think about the night<br />before?",
-        "option":["I need to go to bed early and see my daughter tomorrow.", "What should I do when I meet my daughter?"],
+        "desc": "After everything is over,<br />how do you plan<br />your next steps?",
+        "option":["Handle one concrete task at a time.", "Think big picture and map out the future."],
         "option_mbti": ["S", "N"]
     }
 ]

@@ -1,22 +1,20 @@
 <template>
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
     <div class="testMBTI">
-      <p class="testTitle">당신은 오징어게임에서</p>
+      <p class="testTitle">당신은 서바이벌 선택 게임에서</p>
       <img
-        src="~/assets/image/final/프런트맨_ISTP_200.png"
-        alt="프런트맨 이미지"
+        src="~/assets/image/illust/result_ISTP.png"
+        alt="그림자 지배자 이미지"
         class="mbtiIMG"
       />
       <p class="mbti">ISTP</p>
-      <p class="charName">프런트맨</p>
-      <p class="mbtiSummary">
-        풍부한 열정과 상상력으로 <br />무엇이든 해내는 인물
-      </p>
+      <p class="charName">그림자 지배자</p>
+      <p class="mbtiSummary">논리적이고 객관적인 실용주의자형 인물</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo_summary">서바이벌 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -26,7 +24,7 @@
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실 세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
             <LinkShare
               v-if="!firstTest"
@@ -52,22 +50,20 @@
           <section class="typeGood" @click="typeLink('ESFJ')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/조상우맘_ESFJ_100.png"
-              alt="ISTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESFJ.png"
+              alt="헌신적인 보호자 이미지"
             />
-            <p class="typeCharName">조상우의 어머니</p>
-            <p class="typeCharInfo">
-              동정심과 참을성이 많은 <br />양심적인 인물
-            </p>
+            <p class="typeCharName">헌신적인 보호자</p>
+            <p class="typeCharInfo">동정심과 참을성이 많은 헌신적인 인물</p>
           </section>
           <section class="typeBad" @click="typeLink('ESFP')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/한미녀_ESFP_100.png"
-              alt="ISTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESFP.png"
+              alt="대담한 생존자 이미지"
             />
-            <p class="typeCharName">한미녀</p>
-            <p class="typeCharInfo">현실적이고 실제적인 <br />사교적인 인물</p>
+            <p class="typeCharName">대담한 생존자</p>
+            <p class="typeCharInfo">현실적이고 활동적인 대담한 인물</p>
           </section>
         </div>
       </section>
@@ -82,69 +78,29 @@
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
             결과 전체보기
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             테스트 다시하기
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          결과로 돌아가기
-        </button>
+        <button class="returnResult" @click="returnResult">결과로 돌아가기</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -154,81 +110,43 @@ import LinkShare from "~/components/LinkShare.vue";
 
 export default {
   name: "FinalISTP",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ISTP",
-      mbtiInfo2_text: [
-        "조용하고 말이 없어서 처음에는 차가운 인상이지만 알고 보면 따듯한 사람.",
-        "절제된 호기심으로 인생을 관찰하고 상황파악이 빠르다.",
-        "자기 자신을 필요 이상으로 드러내지 않는다. ",
-        "자신의 느낌이나 생각 정보 계획을 개방하고 상대와 나눌 필요가 있다.",
-        "가까운 친구들 외에는 잘 사귀지 않아서 알아가는데 시간이 걸린다.",
-        "자기만의 시간과 공간을 중요시하는 개인주의적 성향으로 인해 타인과 감정을 공유하지 않는다.",
-        "쉽게 감정 공유를 하지 않아 남들이 다가가기에 쉽지 않다.",
-      ],
       mbtiInfo_text: [
-        "오징어게임의 진행을 총괄적으로 관리하는 인물로, 논리적이고 객관적으로 상황을 관찰하는 모습을 보여준다.",
-        "감정 표현도 없이 차가운 인상을 보여주며 냉정하게 오징어 게임을 운영해 나간다. ",
-        "친동생이 자신을 찾으러 왔지만 큰 동요 없이 그를 내치는 모습을 보여준다. ",
-        "항상 마스크를 쓰며 혼자 지내면서 감정 표현을 하지 않는다.",
+        "논리적이고 객관적으로 상황을 관찰하며 필요한 것만 행동한다.",
+        "감정 표현이 적고 차분하지만 위기에서는 빠른 결단력을 보인다.",
+        "불필요한 말 없이 자신에게 주어진 일을 묵묵히 처리한다.",
+        "절제된 호기심으로 상황을 파악하고 최적의 해결책을 찾는다.",
+        "혼자 있는 시간을 소중히 여기며 독립적으로 생각하고 판단한다.",
+      ],
+      mbtiInfo2_text: [
+        "조용하고 말이 없어서 처음에는 차가운 인상이지만 알고 보면 따뜻한 사람이다.",
+        "절제된 호기심으로 인생을 관찰하고 상황 파악이 빠르다.",
+        "실용적이고 현실적이며 손으로 직접 무언가를 만드는 것을 즐긴다.",
+        "위기 상황에서 침착하게 대응하는 능력이 있다.",
+        "규칙보다 효율을 우선하며 비효율적인 절차를 싫어한다.",
       ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "당신은 오징어게임에서 프런트맨 ISTP",
+      title: "서바이벌 선택 게임 MBTI — 그림자 지배자 ISTP",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "당신은 오징어게임에서 프런트맨 ISTP",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "내가 오징어게임 주인공이라면?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_ISTP.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "당신은 오징어게임에서 프런트맨 ISTP",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "내가 오징어게임 주인공이라면?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_ISTP.png`,
-        },
+        { hid: "title", name: "og:title", content: "서바이벌 선택 게임 MBTI — 그림자 지배자 ISTP" },
+        { hid: "description", name: "og:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta/metaimg_istp.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "서바이벌 선택 게임 MBTI — 그림자 지배자 ISTP" },
+        { hid: "twitter:description", name: "twitter:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta/metaimg_istp.png` },
       ],
     };
   },
@@ -241,26 +159,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ path: "/ko" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ path: "/ko" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

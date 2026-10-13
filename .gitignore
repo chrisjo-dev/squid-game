@@ -89,4 +89,7 @@ sw.*
 # Vim swap files
 *.swp
 
-.vscode
+.vscode.output/
+node_modules/
+.output/
+.nuxt/

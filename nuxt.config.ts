@@ -5,15 +5,15 @@ export default defineNuxtConfig({
   // 호환성 날짜 설정
   compatibilityDate: '2025-06-13',
 
-  // 서버 설정
+  // 정적 생성 (GitHub Pages)
   nitro: {
-    preset: "node-server",
+    preset: "static",
   },
 
   // 런타임 환경 변수
   runtimeConfig: {
     public: {
-      baseURL: process.env.BASE_URL || "https://squid-games.site",
+      baseURL: process.env.BASE_URL || "https://test.wspace.ai.kr",
       dev: process.env.NODE_ENV !== "production",
       kakaoKey: process.env.KAKAO_KEY,
     },
@@ -35,8 +35,9 @@ export default defineNuxtConfig({
 
   // App Head 설정
   app: {
+    baseURL: '/',
     head: {
-      title: "Squid-Game Test",
+      title: "서바이벌 선택 MBTI 테스트",
       meta: [
         { charset: "utf-8" },
         {
@@ -46,43 +47,43 @@ export default defineNuxtConfig({
         },
         {
           name: "description",
-          content: "Which squid game character are you?",
+          content: "나는 생존 게임에서 어떤 유형일까? 서바이벌 선택 MBTI 테스트",
         },
         { name: "format-detection", content: "telephone=no" },
         {
           name: "og:image",
-          content: `https://squid-games.site/image/meta_eng/metaimg_main.png`,
+          content: `https://test.wspace.ai.kr/image/meta_eng/metaimg_main.png`,
         },
         { name: "og:image:width", content: "1200" },
         { name: "og:image:height", content: "630" },
-        { name: "og:url", content: "https://squid-games.site" },
+        { name: "og:url", content: "https://test.wspace.ai.kr" },
         {
           name: "og:title",
-          content: "Squid Game Test",
+          content: "Survival Choices MBTI Test",
         },
         {
           name: "og:description",
-          content: "Which squid game character are you?",
+          content: "What type are you in a survival game?",
         },
-        { name: "og:site_name", content: "Squid game MBTI test" },
+        { name: "og:site_name", content: "Survival Choices MBTI Test" },
         { name: "og:locale", content: "ko_KR" },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:title",
-          content: "Squid Game Test",
+          content: "Survival Choices MBTI Test",
         },
         {
           name: "twitter:description",
-          content: "Which squid game character are you?",
+          content: "What type are you in a survival game?",
         },
-        { name: "twitter:url", content: "https://squid-games.site" },
+        { name: "twitter:url", content: "https://test.wspace.ai.kr" },
         {
           name: "twitter:image",
-          content: `https://squid-games.site/image/meta_eng/metaimg_main.png`,
+          content: `https://test.wspace.ai.kr/image/meta_eng/metaimg_main.png`,
         },
       ],
       link: [
-        { rel: "canonical", href: "squid-games.site" },
+        { rel: "canonical", href: "https://test.wspace.ai.kr" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "stylesheet",

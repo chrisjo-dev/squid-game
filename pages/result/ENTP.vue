@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/의문남_ENTP_200.png"
-        alt="의문남 이미지"
+        src="~/assets/image/illust/result_ENTP.png"
+        alt="The Provocateur image"
         class="mbtiIMG"
       />
       <p class="mbti">ENTP</p>
-      <p class="charName">Salesman</p>
-      <p class="mbtiSummary">
-        Full of confidence and energy.<br />
-        Innovative person.
-      </p>
+      <p class="charName">The Provocateur</p>
+      <p class="mbtiSummary">Brimming with confidence and creativity. An innovator.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Salesman</p>
+          <p class="mbtiInfo_summary">The Provocateur</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('ISFJ')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/성기훈어머니_ISFJ_100.png"
-              alt="ENTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISFJ.png"
+              alt="The Caretaker image"
             />
-            <p class="typeCharName">Player 456’ mother</p>
-            <p class="typeCharInfo">
-              Responsible and dedicated.<br />
-              A patient person.
-            </p>
+            <p class="typeCharName">The Caretaker</p>
+            <p class="typeCharInfo">Responsible and devoted. Endlessly patient.</p>
           </section>
           <section class="typeBad" @click="typeLink('ISFP')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/지영_ISFP_100.png"
-              alt="ENTP와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISFP.png"
+              alt="The Witness image"
             />
-            <p class="typeCharName">Player 240</p>
-            <p class="typeCharInfo">
-              Very sentimental.<br />
-              A person who is independent.
-            </p>
+            <p class="typeCharName">The Witness</p>
+            <p class="typeCharInfo">Sensitive and independent. Guided by inner feelings.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,80 +111,44 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalENTP",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalENTPEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ENTP",
-      mbtiInfo2_text: [
-        "A creative innovator, and enjoy trying new things.",
-        "A multi-talented person full of confidence and energy.",
-        "Try to understand others rather than judge them.",
-        "Honest with his/her emotions and express oneself well.",
-        "Has a strong competitive spirit and likes to debate and argue.",
-        "Has high self-esteem and strong self-confidence.",
-      ],
       mbtiInfo_text: [
-        "As the person who bets 100,000 won by playing a game of slap-match with the squid game participants, he is full of confidence and energy as.",
-        "He has a strong competitive spirit, so he wins consecutive fights against player 456.",
+        "Creates unexpected opportunities with unconventional ideas.",
+        "Thrives on competition and openly enjoys challenging situations.",
+        "Can spot loopholes in the rules and exploit them to their advantage.",
+        "Analyzes logically but sometimes shakes things up with a provocative move.",
+        "Adapts quickly across domains and tests multiple strategies at once.",
       ],
-
+      mbtiInfo2_text: [
+        "A creative innovator who loves new experiments.",
+        "Multi-talented, confident, and full of energy.",
+        "Enjoys debate and thinks from multiple perspectives.",
+        "Loves testing new ideas but can struggle to follow through.",
+        "Flexible thinker who puts possibility before rules.",
+      ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Salesman in Squid game",
+      title: "Survival Choices MBTI — The Provocateur ENTP",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Salesman in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENTP.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Salesman in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENTP.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Provocateur ENTP" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_entp.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Provocateur ENTP" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_entp.png` },
       ],
     };
   },
@@ -246,26 +161,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

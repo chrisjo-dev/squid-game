@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/알리_ENFJ_200.png"
-        alt="알리압둘 이미지"
+        src="~/assets/image/illust/result_ENFJ.png"
+        alt="The Warm Ally image"
         class="mbtiIMG"
       />
       <p class="mbti">ENFJ</p>
-      <p class="charName">Player 199</p>
-      <p class="mbtiSummary">
-        Makes people happy.<br />
-        A kind person.
-      </p>
+      <p class="charName">The Warm Ally</p>
+      <p class="mbtiSummary">Makes people happy. A kind and warm person.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 199</p>
+          <p class="mbtiInfo_summary">The Warm Ally</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('ISTP')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/프런트맨_ISTP_100.png"
-              alt="ENFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISTP.png"
+              alt="The Shadow image"
             />
-            <p class="typeCharName">Front Man</p>
-            <p class="typeCharInfo">
-              Logical and objective.<br />
-              Encyclopedia-type person.
-            </p>
+            <p class="typeCharName">The Shadow</p>
+            <p class="typeCharInfo">Logical and objective. A practical realist.</p>
           </section>
           <section class="typeBad" @click="typeLink('ISTJ')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/황준호_ISTJ_100.png"
-              alt="ENFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISTJ.png"
+              alt="The Pursuer image"
             />
-            <p class="typeCharName">Detective Hwang</p>
-            <p class="typeCharInfo">
-              Do what he started <br />to do until the end.<br />
-              A perfectionist.
-            </p>
+            <p class="typeCharName">The Pursuer</p>
+            <p class="typeCharInfo">Sees everything through to the end. A true perfectionist.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,82 +111,46 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalENFJ",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalENFJEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ENFJ",
-      mbtiInfo2_text: [
-        "Has a lot of sympathy and fellowship. Kind and thoughtful",
-        "Conscientious and patient.",
-        "Set a goal and lead people towards that goal as he/she gets along with people well and is very eloquent.",
-        "Enjoys making people around oneself happy and pleasant and values honesty the most in relationship.",
-        "Has a hot temper that sometimes leads to hasty decision.",
-        "Good at self-reflection but not good at criticizing others.",
-      ],
       mbtiInfo_text: [
-        "He is a foreign worker from Pakistan who shows a warm heart.",
-        "He dislikes conflicts and always mediate fights that happen within the Squid Game.",
-        "Even though he is not Korean, his Korean is fluent and shows a quick understanding rate of the rules.",
-        "Very thoughtful and helps his teammates throughout the game.",
-        "Even in difficult situation, he shows leadership by reassuring his teammates.",
+        "Always steps up as the mediator when conflict breaks out among participants.",
+        "Risks their own safety to help others in a ruthless environment.",
+        "Quickly earns the trust of teammates even in unfamiliar conditions.",
+        "Never loses sight of compassion, even in the most extreme situations.",
+        "Reassures teammates in difficult moments and guides the group forward.",
+      ],
+      mbtiInfo2_text: [
+        "Has a lot of sympathy and fellowship. Kind and thoughtful.",
+        "Conscientious and patient.",
+        "Sets goals and leads people toward them with strong communication skills.",
+        "Values honesty and integrity in relationships. Wants to make people around them happy.",
+        "A hot temper can sometimes lead to hasty decisions.",
+        "Full of compassion, empathy, and understanding.",
+        "Good at self-reflection but not great at criticizing others.",
       ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Player 199 in Squid game",
+      title: "Survival Choices MBTI — The Warm Ally ENFJ",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Player 199 in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENFJ.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Player 199 in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENFJ.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Warm Ally ENFJ" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_enfj.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Warm Ally ENFJ" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_enfj.png` },
       ],
     };
   },
@@ -248,26 +163,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

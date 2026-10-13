@@ -1,20 +1,20 @@
 <template>
   <div class="Final_MBTI" :class="{ notScroll: showModal }">
     <div class="testMBTI">
-      <p class="testTitle">당신은 오징어게임에서</p>
+      <p class="testTitle">당신은 서바이벌 선택 게임에서</p>
       <img
-        src="~/assets/image/final/오일남_INFJ_200.png"
-        alt="오일남 이미지"
+        src="~/assets/image/illust/result_INFJ.png"
+        alt="신비로운 관찰자 이미지"
         class="mbtiIMG"
       />
       <p class="mbti">INFJ</p>
-      <p class="charName">오일남</p>
-      <p class="mbtiSummary">창의력과 통찰력이 뛰어난 <br />독창적인 인물</p>
+      <p class="charName">신비로운 관찰자</p>
+      <p class="mbtiSummary">창의력과 통찰력이 뛰어난 독창적인 인물</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">오징어 게임에서 당신은?</p>
+          <p class="mbtiInfo_summary">서바이벌 게임에서 당신은?</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -24,7 +24,7 @@
       </div>
       <div class="mbtiInfo2_wrap">
         <section class="mbtiInfo2">
-          <p class="mbtiInfo2_summary">현실세계에서 당신은?</p>
+          <p class="mbtiInfo2_summary">현실 세계에서 당신은?</p>
           <ul class="mbtiInfo2_text">
             <LinkShare
               v-if="!firstTest"
@@ -50,24 +50,20 @@
           <section class="typeGood" @click="typeLink('ESTP')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/장덕수_ESTP_100.png"
-              alt="INFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESTP.png"
+              alt="위험한 도박사 이미지"
             />
-            <p class="typeCharName">장덕수</p>
-            <p class="typeCharInfo">
-              다양한 분야에 관심이 있는 <br />활동적인 인물
-            </p>
+            <p class="typeCharName">위험한 도박사</p>
+            <p class="typeCharInfo">행동이 빠르고 적응력이 강한 활동적인 인물</p>
           </section>
           <section class="typeBad" @click="typeLink('ESTJ')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/VIP_ESTJ_100.png"
-              alt="INFJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ESTJ.png"
+              alt="냉혹한 권력자 이미지"
             />
-            <p class="typeCharName">VIPS</p>
-            <p class="typeCharInfo">
-              계획하는 능력이 뛰어난 <br />사업가형 인물
-            </p>
+            <p class="typeCharName">냉혹한 권력자</p>
+            <p class="typeCharInfo">계획과 조직력이 뛰어난 실행가형 인물</p>
           </section>
         </div>
       </section>
@@ -82,69 +78,29 @@
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
             결과 전체보기
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             테스트 다시하기
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          결과로 돌아가기
-        </button>
+        <button class="returnResult" @click="returnResult">결과로 돌아가기</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -154,81 +110,44 @@ import LinkShare from "~/components/LinkShare.vue";
 
 export default {
   name: "FinalINFJ",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "INFJ",
+      mbtiInfo_text: [
+        "조용하지만 상황을 꿰뚫어보는 깊은 통찰력을 가지고 있다.",
+        "타인의 감정과 의도를 빠르게 파악하며 신중하게 행동한다.",
+        "팀원들 사이에서 갈등의 씨앗을 미리 감지하고 중재한다.",
+        "강한 내적 신념을 바탕으로 윤리적인 판단을 내린다.",
+        "극한 상황에서도 자신의 가치관을 지키려는 모습을 보여준다.",
+      ],
       mbtiInfo2_text: [
         "창의력과 통찰력이 뛰어나다.",
-        "독창성과 사적인 독립심이 강하다. ",
-        "확고한 신념과 원칙을 갖고있다.",
-        "다정하고 따듯하지만 냉철한 면도 있다.",
-        "대체로 약자의 편에 선다.",
-        "직면한 상황을 다방면으로 바라보고 이해할 수 있는 능력이 뛰어나다.",
-        "자기 안에 갈등이 많고 복잡하다 남에게 강요보단 행동과 권유로 사람들의 마음을 움직이는 지도력이 있다.",
-      ],
-      mbtiInfo_text: [
-        "456명 중 제일 연장자로서 싸움이 일어나면 말리고 설득과 이야기로 팀원들을 움직이는 매력이 있는 인물이다.",
-        "상냥한 성격으로 남을 배려하는 모습을 자주 보여주고 동시에 게임을 할 때는 집중을 하고 전략을 짜는 냉정한 모습도 보여준다.",
-        "달고나 게임과 줄다리기 게임을 할 때 남다른 창의력과 독창력을 발휘하여 팀원들의 무사한 통과를 도와줄 수 있게 끔 한다.",
-        "구슬게임에서 자신이 이겼음에도 불구하고 '우린 깐부자나'라는 말과 함께 성기훈에게 양보하는 따듯한 모습도 보여준다.",
+        "독창성과 사적인 독립심이 강하다.",
+        "확고한 신념과 원칙을 갖고 있다.",
+        "다정하고 헌신적이지만 소수의 사람들에게만 마음을 연다.",
+        "타인의 감정에 깊이 공감하면서도 스스로의 경계를 지킨다.",
+        "깊은 의미와 목적을 추구하며 표면적인 것에 만족하지 않는다.",
       ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "당신은 오징어게임에서 오일남 INFJ",
+      title: "서바이벌 선택 게임 MBTI — 신비로운 관찰자 INFJ",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "당신은 오징어게임에서 오일남 INFJ",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "내가 오징어게임 주인공이라면?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_INFJ.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "당신은 오징어게임에서 오일남 INFJ",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "내가 오징어게임 주인공이라면?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta/metaimg_INFJ.png`,
-        },
+        { hid: "title", name: "og:title", content: "서바이벌 선택 게임 MBTI — 신비로운 관찰자 INFJ" },
+        { hid: "description", name: "og:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta/metaimg_infj.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "서바이벌 선택 게임 MBTI — 신비로운 관찰자 INFJ" },
+        { hid: "twitter:description", name: "twitter:description", content: "나는 서바이벌 선택 게임에서 어떤 유형일까?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta/metaimg_infj.png` },
       ],
     };
   },
@@ -241,26 +160,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ path: "/ko" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ path: "/ko" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>

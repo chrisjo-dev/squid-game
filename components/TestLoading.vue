@@ -3,7 +3,7 @@
     <p class="loadingTitle">{{ lang_en ? "Loading" : "결과 로딩중" }}</p>
     <img src="~/assets/image/lodingLogo.png" alt="결과로딩 이미지" />
     <p class="loadingText">
-      {{ lang_en ? "You Are..." : "당신은 오징어게임에서..." }}
+      {{ lang_en ? "You Are..." : "당신의 유형은..." }}
     </p>
   </main>
 </template>

@@ -3,21 +3,18 @@
     <div class="testMBTI">
       <p class="testTitle">You Are…</p>
       <img
-        src="~/assets/image/final/조상우_ENTJ_200.png"
-        alt="조상우 이미지"
+        src="~/assets/image/illust/result_ENTJ.png"
+        alt="The Cold Strategist image"
         class="mbtiIMG"
       />
       <p class="mbti">ENTJ</p>
-      <p class="charName">Player 218</p>
-      <p class="mbtiSummary">
-        As a strategist, <br />takes care of practical things.<br />
-        Leader-type person.
-      </p>
+      <p class="charName">The Cold Strategist</p>
+      <p class="mbtiSummary">Leads decisively toward goals. A born leader.</p>
     </div>
     <main>
       <div class="mbtiInfo_wrap">
         <section class="mbtiInfo">
-          <p class="mbtiInfo_summary">Player 218</p>
+          <p class="mbtiInfo_summary">The Cold Strategist</p>
           <ul class="mbtiInfo_text">
             <li v-for="(text, i) in mbtiInfo_text" :key="i">
               <span>{{ text }}</span>
@@ -54,26 +51,20 @@
           <section class="typeGood" @click="typeLink('INFP')">
             <p class="typeTitle">GOOD</p>
             <img
-              src="~/assets/image/final/강새벽_INFP_100.png"
-              alt="ENTJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_INFP.png"
+              alt="The Outsider image"
             />
-            <p class="typeCharName">Player 067</p>
-            <p class="typeCharInfo">
-              Values belief and harmony.<br />
-              An idealist.
-            </p>
+            <p class="typeCharName">The Outsider</p>
+            <p class="typeCharInfo">Values beliefs and harmony. An idealist at heart.</p>
           </section>
           <section class="typeBad" @click="typeLink('ISFJ')">
             <p class="typeTitle">BAD</p>
             <img
-              src="~/assets/image/final/성기훈어머니_ISFJ_100.png"
-              alt="ENTJ와 잘맞는 유형"
+              src="~/assets/image/illust/result_ISFJ.png"
+              alt="The Caretaker image"
             />
-            <p class="typeCharName">Player 456’ mother</p>
-            <p class="typeCharInfo">
-              Responsible and dedicated.<br />
-              A patient person.
-            </p>
+            <p class="typeCharName">The Caretaker</p>
+            <p class="typeCharInfo">Responsible and devoted. Endlessly patient.</p>
           </section>
         </div>
       </section>
@@ -88,70 +79,30 @@
         ></LinkShare>
         <div class="footerBTN">
           <button class="allResultBTN" @click="showResult">
-            All the results
-            <svg
-              width="7"
-              height="11"
-              viewBox="0 0 7 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 0.5L6 5.5L1 10.5"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+            All results
+            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L6 5.5L1 10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <button class="testRestart" @click="testRestart">
             Test again
-            <svg
-              width="10"
-              height="13"
-              viewBox="0 0 10 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_98_158"
-                style="mask-type: alpha"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="2"
-                width="10"
-                height="11"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z"
-                  fill="#C4C4C4"
-                />
+            <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_98_158" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="2" width="10" height="11">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96521 2.56897H4.9997V7.53449H0.0341797V12.5H9.96521V2.56897Z" fill="#C4C4C4" />
               </mask>
               <g mask="url(#mask0_98_158)">
                 <circle cx="4.9997" cy="7.53449" r="4.46552" stroke="white" />
               </g>
-              <path
-                d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931"
-                stroke="white"
-              />
+              <path d="M7.15463 0.5L4.67188 3.39655L7.15463 6.2931" stroke="white" />
             </svg>
           </button>
         </div>
       </section>
       <article v-else>
-        <button class="returnResult" @click="returnResult">
-          Back to result
-        </button>
+        <button class="returnResult" @click="returnResult">Back to result</button>
       </article>
     </footer>
-    <Final_Modal
-      v-if="showModal"
-      @close="showModal = false"
-      @closeModal="closeModal"
-    >
-    </Final_Modal>
+    <Final_Modal v-if="showModal" @close="showModal = false" @closeModal="closeModal"></Final_Modal>
   </div>
 </template>
 
@@ -160,84 +111,45 @@ import Final_Modal from "./Final_Modal.vue";
 import LinkShare from "~/components/LinkShare.vue";
 
 export default {
-  name: "FinalENTJ",
-  components: {
-    Final_Modal,
-    LinkShare,
-  },
+  name: "FinalENTJEN",
+  components: { Final_Modal, LinkShare },
   data() {
     return {
       showModal: false,
-      resultLinkResult: () => {
-        if (process.client) {
-          return window.location.href;
-        }
-      },
-      homeLinkResult: () => {
-        if (process.client) {
-          return window.location.origin;
-        }
-      },
+      resultLinkResult: () => { if (process.client) return window.location.href; },
+      homeLinkResult: () => { if (process.client) return window.location.origin; },
       homeLink: null,
       resultLink: null,
       blurClass: true,
       mbti: "ENTJ",
-      mbtiInfo2_text: [
-        "Slightly withdrawn but makes rational and reasonable decisions. ",
-        "Have an independent personality and prefers to spend time alone.",
-        "Kind to other people but personal life comes first.",
-        "Always put practical interests above anything else.",
-        "Becomes a strategist when teamwork is needed.",
-        "Doesn’t lie inefficient and uncertain situations.",
-        "Well-organized and plans ahead.",
-        "Logical and analytic when working.",
-      ],
       mbtiInfo_text: [
-        "Within the drama, player 218 is smart and talented after graduating Seoul National University top of his class. However, he now has a lot of debt and is on the run after embezzling money from his company.",
-        "Despite his troubles, he tends to worry about it all by himself.",
-        "He always chooses rationality above human feeling. Such personality shows when he pushes the man in front of him in the stepping stone game, murders player 067 and tricks player 199 in the marble game. ",
-        "He shows leadership and strategic abilities when teamwork is needed within the team.",
+        "Rapidly analyzes complex situations and sets cold, effective strategies.",
+        "Leads the team placing efficiency above sentiment — a commanding presence.",
+        "Never hesitates to make the hard call when it serves the goal.",
+        "Sees the big picture and allocates resources and people optimally.",
+        "Stays calm under pressure and keeps the team pointed in a clear direction.",
       ],
-
+      mbtiInfo2_text: [
+        "Somewhat introverted but highly rational in judgment.",
+        "Strongly independent and enjoys time alone.",
+        "Sets high standards for both self and others.",
+        "Combines intuition and logic to solve complex problems.",
+        "Pursues goals with strong will and decisiveness.",
+        "Finds satisfaction in building long-term plans and seeing them through.",
+      ],
       firstTest: null,
     };
   },
   head() {
     return {
-      title: "You are Player 218 in Squid game",
+      title: "Survival Choices MBTI — The Cold Strategist ENTJ",
       meta: [
-        {
-          hid: "title",
-          name: "og:title",
-          content: "You are Player 218 in Squid game",
-        },
-        {
-          hid: "description",
-          name: "og:description",
-          content: "Which squid game character are you?",
-        },
-        {
-          hid: "image",
-          name: "og:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENTJ.png`,
-        },
-        // Twitter Open Graph
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: "You are Player 218 in Squid game",
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: "Which squid game character are you?",
-        },
-
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: `${process.env.baseURL}/image/meta_eng/metaimg_ENTJ.png`,
-        },
+        { hid: "title", name: "og:title", content: "Survival Choices MBTI — The Cold Strategist ENTJ" },
+        { hid: "description", name: "og:description", content: "What type are you in a survival game?" },
+        { hid: "image", name: "og:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_entj.png` },
+        { hid: "twitter:title", name: "twitter:title", content: "Survival Choices MBTI — The Cold Strategist ENTJ" },
+        { hid: "twitter:description", name: "twitter:description", content: "What type are you in a survival game?" },
+        { hid: "twitter:image", name: "twitter:image", content: `${process.env.baseURL}/image/meta_eng/metaimg_entj.png` },
       ],
     };
   },
@@ -250,26 +162,12 @@ export default {
     this.homeLink = this.homeLinkResult();
   },
   methods: {
-    showResult() {
-      this.showModal = !this.showModal;
-    },
-    closeModal(show) {
-      this.showModal = show;
-    },
-    typeLink(type) {
-      this.$router.push({
-        path: `${type}?firstTest=true`,
-      });
-    },
-    testRestart() {
-      this.$router.push({ name: "index" });
-    },
-    returnResult() {
-      this.$router.go(-1);
-    },
-    blurResult() {
-      this.blurClass = false;
-    },
+    showResult() { this.showModal = !this.showModal; },
+    closeModal(show) { this.showModal = show; },
+    typeLink(type) { this.$router.push({ path: `${type}?firstTest=true` }); },
+    testRestart() { this.$router.push({ name: "index" }); },
+    returnResult() { this.$router.go(-1); },
+    blurResult() { this.blurClass = false; },
   },
 };
 </script>
