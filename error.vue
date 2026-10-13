@@ -33,7 +33,7 @@ const props = defineProps({
 
 // 페이지 메타 설정
 useHead({
-  title: 'Error - Squid Game MBTI'
+  title: 'Error - 서바이벌 선택 MBTI 테스트'
 })
 </script>
 
